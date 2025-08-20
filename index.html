@@ -3,217 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra - Become a Millionaire</title>
+  <title>Drovexra Membership Plans</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #000;
+      margin: 0;
+      padding: 0;
+      background: url('bg1.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
     }
-    header {
-      background: #0f172a;
-      text-align: center;
-      padding: 40px 20px;
-    }
-    header img {
-      width: 80px;
-      margin-bottom: 20px;
-    }
-    header h1 {
-      font-size: 32px;
-      color: #38bdf8;
-    }
-    header p {
-      font-size: 18px;
-      color: #94a3b8;
-    }
-    .plans {
+
+    .container {
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
+      align-items: flex-start;
       gap: 20px;
-      padding: 40px 20px;
+      padding: 50px;
+      flex-wrap: wrap;
     }
+
     .plan {
-      background: #1e293b;
-      border-radius: 15px;
-      padding: 30px;
-      width: 280px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(56,189,248,0.4);
-    }
-    .plan h2 {
-      color: #38bdf8;
-    }
-    .plan h3 {
-      margin: 10px 0;
-      color: #22c55e;
-    }
-    .plan p {
-      font-size: 14px;
-      color: #cbd5e1;
-    }
-    .plan ul {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      font-size: 14px;
-      margin-top: 15px;
-    }
-    .plan ul li {
-      margin: 8px 0;
-    }
-    button {
-      margin-top: 15px;
-      padding: 12px 20px;
-      border: none;
-      background: #38bdf8;
-      color: #000;
-      font-weight: bold;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0ea5e9;
-    }
-    footer {
-      background: #0f172a;
-      text-align: center;
+      width: 300px;
+      border-radius: 12px;
       padding: 20px;
-      margin-top: 40px;
-      font-size: 14px;
-      color: #94a3b8;
-    }
-    /* Popup Styles */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.8);
-      justify-content: center;
-      align-items: center;
-    }
-    .popup-content {
-      background: #1e293b;
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(56,189,248,0.6);
-    }
-    .popup-content h2 {
-      color: #38bdf8;
-    }
-    .currency-btn {
-      display: block;
-      margin: 10px auto;
-      padding: 12px 20px;
-      background: #38bdf8;
       color: #000;
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .plan:hover {
+      transform: translateY(-10px);
+    }
+
+    .plan h2 {
+      margin-top: 0;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .price {
+      font-size: 20px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+      line-height: 1.6;
+    }
+
+    .buy-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
+      background: #000;
+      color: #fff;
       font-weight: bold;
-      width: 100px;
+      cursor: pointer;
+      text-decoration: none;
     }
-    .close-btn {
-      margin-top: 15px;
-      background: red;
-      color: white;
+
+    .buy-btn:hover {
+      background: #222;
+    }
+
+    /* Background images for each plan */
+    .starter {
+      background: url('bg2.jpg');
+    }
+
+    .growth {
+      background: url('bg3.jpg');
+    }
+
+    .elite {
+      background: url('bg4.jpg');
     }
   </style>
 </head>
 <body>
+  <h1 style="text-align:center; padding:20px; color:#000;">Drovexra Membership Plans</h1>
 
-  <!-- Hero -->
-  <header>
-    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Drovexra Logo">
-    <h1>Drovexra</h1>
-    <p>The best place to become a millionaire 🚀</p>
-  </header>
+  <div class="container">
+    <!-- Starter Plan -->
+    <div class="plan starter">
+      <h2>Starter Plan</h2>
+      <p class="price">$19/month</p>
+      <ul>
+        <li>Perfect for Beginners, just starting their digital journey</li>
+        <li>Exclusive eBooks (business + marketing focused)</li>
+        <li>Ads Run (Meta/TikTok/Google) (Additional Fee)</li>
+        <li>2 Social Media Accounts Managed</li>
+        <li>Business Email Setup</li>
+        <li>1 Weekly Update (every 7 days)</li>
+      </ul>
+      <a href="#" class="buy-btn">Buy Now</a>
+    </div>
 
-  <!-- Membership Plans -->
-  <section class="plans">
-    <!-- Starter -->
-    <div class="plan">
-      <h2>🟢 Starter</h2>
-      <h3>$19/month</h3>
-      <p>Perfect for Beginners</p>
+    <!-- Growth Plan -->
+    <div class="plan growth">
+      <h2>Growth Plan</h2>
+      <p class="price">$39/month</p>
       <ul>
-        <li>📚 Exclusive eBooks</li>
-        <li>📱 2 Social Media Accounts</li>
-        <li>📧 Business Email Setup</li>
-        <li>🔄 Weekly Updates</li>
+        <li>Everything in Starter</li>
+        <li>Premium Courses (business, marketing, digital products)</li>
+        <li>Landing Page + Website Setup</li>
+        <li>Ads Run (Meta/TikTok/Google) (Additional Fee)</li>
+        <li>Free Domain (1 Year)</li>
+        <li>5 Social Media Accounts Managed</li>
+        <li>Business Email Setup</li>
+        <li>Updates Every 2 Days</li>
       </ul>
-      <button onclick="openPopup('Starter')">Buy Now</button>
+      <a href="#" class="buy-btn">Buy Now</a>
     </div>
-    
-    <!-- Growth -->
-    <div class="plan" style="box-shadow:0 0 15px rgba(14,165,233,0.9);">
-      <h2>🔵 Growth ⭐</h2>
-      <h3>$39/month</h3>
-      <p>Scale your business</p>
-      <ul>
-        <li>🎥 Premium Courses</li>
-        <li>🌐 Website Setup + Free Domain</li>
-        <li>📱 5 Social Media Accounts</li>
-        <li>🔄 Updates Every 2 Days</li>
-      </ul>
-      <button onclick="openPopup('Growth')">Buy Now</button>
-    </div>
-    
-    <!-- Elite -->
-    <div class="plan">
-      <h2>🔴 Elite 🚀</h2>
-      <h3>$59/month</h3>
-      <p>Maximum Value & Priority</p>
-      <ul>
-        <li>🎓 Full Premium Courses + Templates</li>
-        <li>🏪 Store Setup + Hosting</li>
-        <li>📱 6 Social Media Accounts</li>
-        <li>🔄 Daily Reports & Hacks</li>
-      </ul>
-      <button onclick="openPopup('Elite')">Buy Now</button>
-    </div>
-  </section>
 
-  <!-- Popup -->
-  <div id="popup" class="popup">
-    <div class="popup-content">
-      <h2 id="planTitle">Choose Currency</h2>
-      <button class="currency-btn" onclick="redirectToPayment('INR')">INR</button>
-      <button class="currency-btn" onclick="redirectToPayment('USD')">USD</button>
-      <button class="currency-btn close-btn" onclick="closePopup()">Close</button>
+    <!-- Elite Plan -->
+    <div class="plan elite">
+      <h2>Elite Plan</h2>
+      <p class="price">$59/month</p>
+      <ul>
+        <li>Everything in Growth</li>
+        <li>Full Premium Courses + Templates</li>
+        <li>Ready-to-Sell Store Setup</li>
+        <li>Free Domain + Hosting</li>
+        <li>6 Social Media Accounts Fully Managed</li>
+        <li>Ads Run on All Platforms (Meta/TikTok/Google/YouTube) (Additional Fee)</li>
+        <li>Personal Support (Direct Access, 24/7 Priority Help)</li>
+        <li>Updates Every 24 Hours</li>
+        <li>Custom Strategy & Growth Hacks</li>
+      </ul>
+      <a href="#" class="buy-btn">Buy Now</a>
     </div>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Drovexra. All rights reserved.
-  </footer>
-
-  <!-- Script -->
-  <script>
-    let selectedPlan = "";
-    function openPopup(plan) {
-      selectedPlan = plan;
-      document.getElementById("planTitle").innerText = plan + " Plan - Choose Currency";
-      document.getElementById("popup").style.display = "flex";
-    }
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-    }
-    function redirectToPayment(currency) {
-      alert("Redirecting to " + currency + " payment page for " + selectedPlan + " Plan.");
-      // 👉 Replace with real payment link later
-      if(currency === "INR") {
-        window.location.href = "https://your-inr-payment-link.com";
-      } else {
-        window.location.href = "https://your-usd-payment-link.com";
-      }
-    }
-  </script>
-
 </body>
-  </html>
+</html>
