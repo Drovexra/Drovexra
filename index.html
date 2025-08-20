@@ -3,186 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra Membership Plans</title>
+  <title>Pricing Plans</title>
   <style>
-    /* ===== Global Styles ===== */
+    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Poppins", sans-serif;
     }
 
     body {
-      /* 🔥 Gradient background for whole page */
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      color: #fff;
-      min-height: 100vh;
+      background: #0f0f0f;
+      color: white;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      justify-content: flex-start;
-      padding: 50px 20px;
+      min-height: 100vh;
+      padding: 40px;
     }
 
-    h1 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
-      text-align: center;
-      color: #f1f1f1;
-    }
-
-    /* ===== Plans Container ===== */
-    .plans {
+    .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      gap: 25px;
       width: 100%;
       max-width: 1200px;
     }
 
-    /* ===== Plan Card ===== */
-    .plan {
-      background: rgba(255, 255, 255, 0.05);
+    /* Pricing Card */
+    .card {
       border-radius: 20px;
       padding: 30px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      text-align: center;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(50px);
+      opacity: 0;
+      animation: fadeInUp 1s forwards;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .plan:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    .card:nth-child(1) { animation-delay: 0.2s; background: linear-gradient(135deg, #ff9966, #ff5e62); }
+    .card:nth-child(2) { animation-delay: 0.4s; background: linear-gradient(135deg, #6a11cb, #2575fc); }
+    .card:nth-child(3) { animation-delay: 0.6s; background: linear-gradient(135deg, #11998e, #38ef7d); }
+    .card:nth-child(4) { animation-delay: 0.8s; background: linear-gradient(135deg, #fc466b, #3f5efb); }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .plan h2 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-    }
-
-    .price {
-      font-size: 1.4rem;
-      font-weight: bold;
+    .card h2 {
+      font-size: 28px;
       margin-bottom: 15px;
     }
 
-    .features {
+    .price {
+      font-size: 36px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    ul {
       list-style: none;
       margin-bottom: 20px;
     }
 
-    .features li {
+    ul li {
       margin: 10px 0;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
+      font-size: 16px;
     }
 
-    .features li::before {
-      content: "✔";
-      margin-right: 10px;
-      color: #4cafef;
-    }
-
-    /* ===== Buttons ===== */
     .btn {
       display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 12px 28px;
+      border-radius: 30px;
       text-decoration: none;
-      padding: 12px 25px;
-      border-radius: 50px;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: 0.3s;
       color: white;
-      background: linear-gradient(90deg, #06beb6, #48b1bf);
+      font-weight: bold;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255, 255, 255, 0.4);
     }
 
     .btn:hover {
-      opacity: 0.9;
-      transform: scale(1.05);
+      background: white;
+      color: black;
+      box-shadow: 0 0 20px white;
     }
 
-    /* ===== Plan Colors ===== */
-    .starter h2 { color: #7CFC00; }
-    .growth h2 { color: #1E90FF; }
-    .elite h2 { color: #FF6347; }
-
-    .starter .btn {
-      background: linear-gradient(90deg, #56ab2f, #a8e063);
-    }
-
-    .growth .btn {
-      background: linear-gradient(90deg, #1e3c72, #2a5298);
-    }
-
-    .elite .btn {
-      background: linear-gradient(90deg, #cb2d3e, #ef473a);
-    }
-
-    /* ===== Responsive ===== */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2rem;
-      }
-
-      .plan {
-        padding: 20px;
+    /* Animations */
+    @keyframes fadeInUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
       }
     }
   </style>
 </head>
 <body>
-  <h1>🚀 Drovexra Membership Plans</h1>
-
-  <div class="plans">
-    <!-- Starter Plan -->
-    <div class="plan starter">
-      <h2>🟢 Starter Plan – $19/month</h2>
-      <p class="price">Perfect for Beginners</p>
-      <ul class="features">
-        <li>Exclusive eBooks (Business + Marketing)</li>
-        <li>Ads Run (Meta/TikTok/Google) (Extra Fee)</li>
-        <li>2 Social Media Accounts Managed</li>
-        <li>Business Email Setup</li>
-        <li>1 Weekly Update (every 7 days)</li>
+  <div class="container">
+    <div class="card">
+      <h2>Starter Plan</h2>
+      <p class="price">₹199</p>
+      <ul>
+        <li>✔ Basic Features</li>
+        <li>✔ Limited Support</li>
+        <li>✔ 5GB Storage</li>
       </ul>
-      <a href="#" class="btn">Get Starter Plan</a>
+      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=199" class="btn">Buy Now</a>
     </div>
 
-    <!-- Growth Plan -->
-    <div class="plan growth">
-      <h2>🔵 Growth Plan – $39/month ⭐</h2>
-      <p class="price">For Hustlers ready to scale faster</p>
-      <ul class="features">
-        <li>Everything in Starter</li>
-        <li>Premium Courses (Business, Marketing, Digital Products)</li>
-        <li>Landing Page + Website Setup</li>
-        <li>Ads Run (Meta/TikTok/Google) (Extra Fee)</li>
-        <li>Free Domain (1 Year)</li>
-        <li>5 Social Media Accounts Managed</li>
-        <li>Business Email Setup</li>
-        <li>Updates Every 2 Days</li>
+    <div class="card">
+      <h2>Basic Plan</h2>
+      <p class="price">₹499</p>
+      <ul>
+        <li>✔ All Starter Features</li>
+        <li>✔ Priority Support</li>
+        <li>✔ 25GB Storage</li>
       </ul>
-      <a href="#" class="btn">Get Growth Plan</a>
+      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=499" class="btn">Buy Now</a>
     </div>
 
-    <!-- Elite Plan -->
-    <div class="plan elite">
-      <h2>🔴 Elite Plan – $59/month 🚀</h2>
-      <p class="price">Maximum Value & Priority Access</p>
-      <ul class="features">
-        <li>Everything in Growth</li>
-        <li>Full Premium Courses + Templates</li>
-        <li>Ready-to-Sell Store Setup</li>
-        <li>Free Domain + Hosting</li>
-        <li>6 Social Media Accounts Fully Managed</li>
-        <li>Ads Run on All Platforms (Extra Fee)</li>
-        <li>Personal Support (24/7 Priority Help)</li>
-        <li>Daily Updates + Guidance</li>
-        <li>Custom Strategy & Growth Hacks</li>
+    <div class="card">
+      <h2>Normal Plan</h2>
+      <p class="price">₹999</p>
+      <ul>
+        <li>✔ All Basic Features</li>
+        <li>✔ Premium Support</li>
+        <li>✔ 100GB Storage</li>
       </ul>
-      <a href="#" class="btn">Get Elite Plan</a>
+      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=999" class="btn">Buy Now</a>
+    </div>
+
+    <div class="card">
+      <h2>Advance Plan</h2>
+      <p class="price">₹1999</p>
+      <ul>
+        <li>✔ All Normal Features</li>
+        <li>✔ Dedicated Support</li>
+        <li>✔ 1TB Storage</li>
+      </ul>
+      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=1999" class="btn">Buy Now</a>
     </div>
   </div>
 </body>
-        </html>
+                               </html>
