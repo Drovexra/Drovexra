@@ -5,141 +5,184 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drovexra Membership Plans</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    /* ===== Global Styles ===== */
+    * {
       margin: 0;
       padding: 0;
-      background: url('bg1.jpg') no-repeat center center fixed;
-      background-size: cover;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      /* 🔥 Gradient background for whole page */
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       color: #fff;
-    }
-
-    .container {
+      min-height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 50px;
-      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 50px 20px;
     }
 
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 40px;
+      text-align: center;
+      color: #f1f1f1;
+    }
+
+    /* ===== Plans Container ===== */
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* ===== Plan Card ===== */
     .plan {
-      width: 300px;
-      border-radius: 12px;
-      padding: 20px;
-      color: #000;
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-      transition: transform 0.3s ease;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .plan:hover {
       transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
     }
 
     .plan h2 {
-      margin-top: 0;
-      font-size: 22px;
-      font-weight: bold;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
     }
 
     .price {
-      font-size: 20px;
-      margin: 10px 0;
+      font-size: 1.4rem;
       font-weight: bold;
+      margin-bottom: 15px;
     }
 
-    ul {
-      padding: 0;
+    .features {
       list-style: none;
-      line-height: 1.6;
+      margin-bottom: 20px;
     }
 
-    .buy-btn {
+    .features li {
+      margin: 10px 0;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .features li::before {
+      content: "✔";
+      margin-right: 10px;
+      color: #4cafef;
+    }
+
+    /* ===== Buttons ===== */
+    .btn {
       display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      background: #000;
-      color: #fff;
-      font-weight: bold;
-      cursor: pointer;
       text-decoration: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: 0.3s;
+      color: white;
+      background: linear-gradient(90deg, #06beb6, #48b1bf);
     }
 
-    .buy-btn:hover {
-      background: #222;
+    .btn:hover {
+      opacity: 0.9;
+      transform: scale(1.05);
     }
 
-    /* Background images for each plan */
-    .starter {
-      background: url('bg2.jpg');
+    /* ===== Plan Colors ===== */
+    .starter h2 { color: #7CFC00; }
+    .growth h2 { color: #1E90FF; }
+    .elite h2 { color: #FF6347; }
+
+    .starter .btn {
+      background: linear-gradient(90deg, #56ab2f, #a8e063);
     }
 
-    .growth {
-      background: url('bg3.jpg');
+    .growth .btn {
+      background: linear-gradient(90deg, #1e3c72, #2a5298);
     }
 
-    .elite {
-      background: url('bg4.jpg');
+    .elite .btn {
+      background: linear-gradient(90deg, #cb2d3e, #ef473a);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .plan {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <h1 style="text-align:center; padding:20px; color:#000;">Drovexra Membership Plans</h1>
+  <h1>🚀 Drovexra Membership Plans</h1>
 
-  <div class="container">
+  <div class="plans">
     <!-- Starter Plan -->
     <div class="plan starter">
-      <h2>Starter Plan</h2>
-      <p class="price">$19/month</p>
-      <ul>
-        <li>Perfect for Beginners, just starting their digital journey</li>
-        <li>Exclusive eBooks (business + marketing focused)</li>
-        <li>Ads Run (Meta/TikTok/Google) (Additional Fee)</li>
+      <h2>🟢 Starter Plan – $19/month</h2>
+      <p class="price">Perfect for Beginners</p>
+      <ul class="features">
+        <li>Exclusive eBooks (Business + Marketing)</li>
+        <li>Ads Run (Meta/TikTok/Google) (Extra Fee)</li>
         <li>2 Social Media Accounts Managed</li>
         <li>Business Email Setup</li>
         <li>1 Weekly Update (every 7 days)</li>
       </ul>
-      <a href="#" class="buy-btn">Buy Now</a>
+      <a href="#" class="btn">Get Starter Plan</a>
     </div>
 
     <!-- Growth Plan -->
     <div class="plan growth">
-      <h2>Growth Plan</h2>
-      <p class="price">$39/month</p>
-      <ul>
+      <h2>🔵 Growth Plan – $39/month ⭐</h2>
+      <p class="price">For Hustlers ready to scale faster</p>
+      <ul class="features">
         <li>Everything in Starter</li>
-        <li>Premium Courses (business, marketing, digital products)</li>
+        <li>Premium Courses (Business, Marketing, Digital Products)</li>
         <li>Landing Page + Website Setup</li>
-        <li>Ads Run (Meta/TikTok/Google) (Additional Fee)</li>
+        <li>Ads Run (Meta/TikTok/Google) (Extra Fee)</li>
         <li>Free Domain (1 Year)</li>
         <li>5 Social Media Accounts Managed</li>
         <li>Business Email Setup</li>
         <li>Updates Every 2 Days</li>
       </ul>
-      <a href="#" class="buy-btn">Buy Now</a>
+      <a href="#" class="btn">Get Growth Plan</a>
     </div>
 
     <!-- Elite Plan -->
     <div class="plan elite">
-      <h2>Elite Plan</h2>
-      <p class="price">$59/month</p>
-      <ul>
+      <h2>🔴 Elite Plan – $59/month 🚀</h2>
+      <p class="price">Maximum Value & Priority Access</p>
+      <ul class="features">
         <li>Everything in Growth</li>
         <li>Full Premium Courses + Templates</li>
         <li>Ready-to-Sell Store Setup</li>
         <li>Free Domain + Hosting</li>
         <li>6 Social Media Accounts Fully Managed</li>
-        <li>Ads Run on All Platforms (Meta/TikTok/Google/YouTube) (Additional Fee)</li>
-        <li>Personal Support (Direct Access, 24/7 Priority Help)</li>
-        <li>Updates Every 24 Hours</li>
+        <li>Ads Run on All Platforms (Extra Fee)</li>
+        <li>Personal Support (24/7 Priority Help)</li>
+        <li>Daily Updates + Guidance</li>
         <li>Custom Strategy & Growth Hacks</li>
       </ul>
-      <a href="#" class="buy-btn">Buy Now</a>
+      <a href="#" class="btn">Get Elite Plan</a>
     </div>
   </div>
 </body>
-</html>
+        </html>
