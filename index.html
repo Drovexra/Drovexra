@@ -1,153 +1,147 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pricing Plans</title>
+  <title>Drovexra Plans</title>
   <style>
-    /* Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
+      font-family: Arial, sans-serif;
+    }body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  text-align: center;
+  padding: 40px;
+}
 
-    body {
-      background: #0f0f0f;
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 40px;
-    }
+h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  animation: fadeInDown 1.2s ease;
+}
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      width: 100%;
-      max-width: 1200px;
-    }
+p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
 
-    /* Pricing Card */
-    .card {
-      border-radius: 20px;
-      padding: 30px;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-      transform: translateY(50px);
-      opacity: 0;
-      animation: fadeInUp 1s forwards;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+.plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-    .card:nth-child(1) { animation-delay: 0.2s; background: linear-gradient(135deg, #ff9966, #ff5e62); }
-    .card:nth-child(2) { animation-delay: 0.4s; background: linear-gradient(135deg, #6a11cb, #2575fc); }
-    .card:nth-child(3) { animation-delay: 0.6s; background: linear-gradient(135deg, #11998e, #38ef7d); }
-    .card:nth-child(4) { animation-delay: 0.8s; background: linear-gradient(135deg, #fc466b, #3f5efb); }
+.plan {
+  padding: 25px;
+  border-radius: 20px;
+  color: #fff;
+  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease;
+}
+.plan:hover {
+  transform: translateY(-8px);
+}
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    }
+.starter {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+}
+.growth {
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
+}
+.elite {
+  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+}
 
-    .card h2 {
-      font-size: 28px;
-      margin-bottom: 15px;
-    }
+.plan h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
-    .price {
-      font-size: 36px;
-      font-weight: bold;
-      margin: 20px 0;
-    }
+.plan p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
 
-    ul {
-      list-style: none;
-      margin-bottom: 20px;
-    }
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
 
-    ul li {
-      margin: 10px 0;
-      font-size: 16px;
-    }
+.btn {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
 
-    .btn {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 12px 28px;
-      border-radius: 30px;
-      text-decoration: none;
-      color: white;
-      font-weight: bold;
-      transition: all 0.3s ease;
-      border: 2px solid rgba(255, 255, 255, 0.4);
-    }
+.inr {
+  background: #ff6b6b;
+  color: white;
+}
+.inr:hover {
+  background: #ff4757;
+}
 
-    .btn:hover {
-      background: white;
-      color: black;
-      box-shadow: 0 0 20px white;
-    }
+.usd {
+  background: #1dd1a1;
+  color: white;
+}
+.usd:hover {
+  background: #10ac84;
+}
 
-    /* Animations */
-    @keyframes fadeInUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
+  <h1>Drovexra Pricing Plans</h1>
+  <p>Choose the best plan for your growth</p>  <div class="plans">
+    <!-- Starter Plan -->
+    <div class="plan starter">
       <h2>Starter Plan</h2>
-      <p class="price">₹199</p>
-      <ul>
-        <li>✔ Basic Features</li>
-        <li>✔ Limited Support</li>
-        <li>✔ 5GB Storage</li>
-      </ul>
-      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=199" class="btn">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h2>Basic Plan</h2>
-      <p class="price">₹499</p>
-      <ul>
-        <li>✔ All Starter Features</li>
-        <li>✔ Priority Support</li>
-        <li>✔ 25GB Storage</li>
-      </ul>
-      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=499" class="btn">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h2>Normal Plan</h2>
-      <p class="price">₹999</p>
-      <ul>
-        <li>✔ All Basic Features</li>
-        <li>✔ Premium Support</li>
-        <li>✔ 100GB Storage</li>
-      </ul>
-      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=999" class="btn">Buy Now</a>
-    </div>
-
-    <div class="card">
-      <h2>Advance Plan</h2>
-      <p class="price">₹1999</p>
-      <ul>
-        <li>✔ All Normal Features</li>
-        <li>✔ Dedicated Support</li>
-        <li>✔ 1TB Storage</li>
-      </ul>
-      <a href="upi://pay?pa=7905315338@fam&pn=Valtrix&cu=INR&am=1999" class="btn">Buy Now</a>
-    </div>
+      <p>Perfect for beginners who want to get started with Drovexra.</p>
+      <div class="buttons">
+        <!-- INR Button -->
+        <button class="btn inr" onclick="window.location.href='upi://pay?pa=7905315338@fam&pn=Drovexra&cu=INR&am=499'">INR</button>
+        <!-- USD Button -->
+        <button class="btn usd" onclick="sendEmail('Starter Plan')">USD</button>
+      </div>
+    </div><!-- Growth Plan -->
+<div class="plan growth">
+  <h2>Growth Plan</h2>
+  <p>Designed for those who are ready to scale their journey.</p>
+  <div class="buttons">
+    <button class="btn inr" onclick="window.location.href='upi://pay?pa=7905315338@fam&pn=Drovexra&cu=INR&am=999'">INR</button>
+    <button class="btn usd" onclick="sendEmail('Growth Plan')">USD</button>
   </div>
-</body>
-                               </html>
+</div>
+
+<!-- Elite Plan -->
+<div class="plan elite">
+  <h2>Elite Plan</h2>
+  <p>Best for professionals who want maximum value.</p>
+  <div class="buttons">
+    <button class="btn inr" onclick="window.location.href='upi://pay?pa=7905315338@fam&pn=Drovexra&cu=INR&am=1999'">INR</button>
+    <button class="btn usd" onclick="sendEmail('Elite Plan')">USD</button>
+  </div>
+</div>
+
+  </div>  <script>
+    function sendEmail(planName) {
+      const subject = `I want to buy the ${planName}`;
+      const body = `Hello Team Drovexra,%0D%0A%0D%0AI would like to purchase the ${planName}. Please guide me through the next steps.%0D%0A%0D%0ARegards,%0D%0A(User's Name)`;
+      window.location.href = `mailto:drovexra@gmail.com?subject=${subject}&body=${body}`;
+    }
+  </script></body>
+</html>
