@@ -1,93 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Millionaire Blueprint</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    let currency = "USD";
-    let prices = {
-      Starter: { USD: 9, INR: 750 },
-      Growth: { USD: 29, INR: 2400 },
-      Elite: { USD: 99, INR: 8200 },
-    };
-
-    function toggleCurrency() {
-      currency = currency === "USD" ? "INR" : "USD";
-      document.getElementById("currency-btn").innerText = currency;
-      for (let plan in prices) {
-        document.getElementById(plan + "-price").innerText =
-          (currency === "USD" ? "$" : "₹") + prices[plan][currency];
-      }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
     }
+    .container {
+      background: rgba(0,0,0,0.7);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 20px rgba(255,255,255,0.2);
+      max-width: 500px;
+    }
+    h1 {
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #00f7ff;
+    }
+    p {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      color: #ddd;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    .btn-inr {
+      background: #ff6600;
+      color: white;
+    }
+    .btn-usd {
+      background: #00cc66;
+      color: white;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 15px rgba(255,255,255,0.3);
+    }
+    #message {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #00ffea;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Millionaire Blueprint</h1>
+    <p>Choose your currency and get instant access to the ebook.</p>
+    
+    <button class="btn btn-inr" onclick="sendEmail('INR')">Buy in INR ₹</button>
+    <button class="btn btn-usd" onclick="sendEmail('USD')">Buy in USD $</button>
+    
+    <div id="message"></div>
+  </div>
 
-    function sendEmail(plan) {
-      let subject = `Purchase Request: ${plan} Plan (${currency})`;
-      let body = `Hi Team,%0D%0A%0D%0AI want to purchase the ${plan} Plan.%0D%0ASelected Currency: ${currency}.%0D%0APlease guide me with the next steps.%0D%0A%0D%0ARegards,`;
-      window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+  <script>
+    function sendEmail(currency) {
+      // Demo: Sirf message dikhayega
+      document.getElementById("message").innerText = 
+        "✅ Order placed successfully in " + currency + ". Email has been sent!";
+      
+      // Real email ke liye EmailJS / backend API call lagani hogi
+      // Example (EmailJS):
+      // emailjs.send("serviceID", "templateID", {
+      //   currency: currency,
+      //   user_email: "customer@gmail.com"
+      // });
     }
   </script>
-</head>
-<body class="bg-gradient-to-br from-gray-900 to-black text-white font-sans">
-  <!-- Hero Section -->
-  <section class="text-center py-20 px-6">
-    <h1 class="text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-      Millionaire Blueprint
-    </h1>
-    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
-      Unlock the secrets of billionaires with psychology, habits, and systems that build empires.
-    </p>
-    <button id="currency-btn"
-      onclick="toggleCurrency()"
-      class="mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl shadow-lg hover:scale-105 transition transform">
-      USD
-    </button>
-  </section>
-
-  <!-- Pricing Plans -->
-  <section class="grid md:grid-cols-3 gap-8 px-6 max-w-6xl mx-auto pb-20">
-    <!-- Starter -->
-    <div class="bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-purple-500/50 transition transform hover:-translate-y-2">
-      <h2 class="text-2xl font-bold mb-4">Starter</h2>
-      <p id="Starter-price" class="text-4xl font-extrabold mb-6">$9</p>
-      <ul class="text-gray-300 mb-6 space-y-2">
-        <li>✔ Basic Access</li>
-        <li>✔ 1 Free Ebook</li>
-        <li>✔ Email Support</li>
-      </ul>
-      <button onclick="sendEmail('Starter')" class="w-full py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl hover:scale-105 transition">
-        Buy Now
-      </button>
-    </div>
-
-    <!-- Growth -->
-    <div class="bg-gray-900 border-2 border-purple-500 rounded-2xl p-8 shadow-xl hover:shadow-blue-500/50 transition transform hover:-translate-y-2 scale-105">
-      <h2 class="text-2xl font-bold mb-4">Growth</h2>
-      <p id="Growth-price" class="text-4xl font-extrabold mb-6">$29</p>
-      <ul class="text-gray-300 mb-6 space-y-2">
-        <li>✔ Everything in Starter</li>
-        <li>✔ 5 Premium Ebooks</li>
-        <li>✔ Priority Support</li>
-      </ul>
-      <button onclick="sendEmail('Growth')" class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl hover:scale-105 transition">
-        Buy Now
-      </button>
-    </div>
-
-    <!-- Elite -->
-    <div class="bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-pink-500/50 transition transform hover:-translate-y-2">
-      <h2 class="text-2xl font-bold mb-4">Elite</h2>
-      <p id="Elite-price" class="text-4xl font-extrabold mb-6">$99</p>
-      <ul class="text-gray-300 mb-6 space-y-2">
-        <li>✔ Everything in Growth</li>
-        <li>✔ Lifetime Updates</li>
-        <li>✔ 1-on-1 Mentorship</li>
-      </ul>
-      <button onclick="sendEmail('Elite')" class="w-full py-3 bg-gradient-to-r from-pink-500 to-red-600 rounded-xl hover:scale-105 transition">
-        Buy Now
-      </button>
-    </div>
-  </section>
 </body>
 </html>
