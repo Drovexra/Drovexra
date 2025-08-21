@@ -1,147 +1,81 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra Plans</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }body {
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-  text-align: center;
-  padding: 40px;
-}
+<section class="py-16 bg-gradient-to-r from-[#3F9BDF] to-white">
+  <div class="text-center mb-12">
+    <h2 class="text-4xl font-extrabold text-gray-800">🚀 Drovexra Membership Plans</h2>
+    <p class="text-lg text-gray-600">Choose your path. Scale your growth. Become unstoppable.</p>
+  </div>
 
-h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  animation: fadeInDown 1.2s ease;
-}
+  <!-- Currency Switch -->
+  <div class="flex justify-center mb-8">
+    <button class="px-4 py-2 bg-gray-200 rounded-l-lg hover:bg-blue-300">INR ₹</button>
+    <button class="px-4 py-2 bg-gray-200 rounded-r-lg hover:bg-blue-300">USD $</button>
+  </div>
 
-p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-}
-
-.plans {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.plan {
-  padding: 25px;
-  border-radius: 20px;
-  color: #fff;
-  box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
-}
-.plan:hover {
-  transform: translateY(-8px);
-}
-
-.starter {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-}
-.growth {
-  background: linear-gradient(135deg, #a1c4fd, #c2e9fb);
-}
-.elite {
-  background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-}
-
-.plan h2 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
-
-.plan p {
-  font-size: 1rem;
-  margin-bottom: 20px;
-}
-
-.buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.btn {
-  padding: 12px 25px;
-  border: none;
-  border-radius: 30px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.inr {
-  background: #ff6b6b;
-  color: white;
-}
-.inr:hover {
-  background: #ff4757;
-}
-
-.usd {
-  background: #1dd1a1;
-  color: white;
-}
-.usd:hover {
-  background: #10ac84;
-}
-
-@keyframes fadeInDown {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-  </style>
-</head>
-<body>
-  <h1>Drovexra Pricing Plans</h1>
-  <p>Choose the best plan for your growth</p>  <div class="plans">
+  <div class="grid md:grid-cols-3 gap-8 px-6 md:px-16">
+    
     <!-- Starter Plan -->
-    <div class="plan starter">
-      <h2>Starter Plan</h2>
-      <p>Perfect for beginners who want to get started with Drovexra.</p>
-      <div class="buttons">
-        <!-- INR Button -->
-        <button class="btn inr" onclick="window.location.href='upi://pay?pa=7905315338@fam&pn=Drovexra&cu=INR&am=499'">INR</button>
-        <!-- USD Button -->
-        <button class="btn usd" onclick="sendEmail('Starter Plan')">USD</button>
+    <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform duration-300">
+      <h3 class="text-2xl font-bold text-green-600">🟢 Starter – $19/month</h3>
+      <p class="text-gray-500 mb-4">Perfect for Beginners</p>
+      <ul class="text-gray-700 space-y-2">
+        <li>📚 Exclusive eBooks</li>
+        <li>🎯 Ads Run (Additional Fee)</li>
+        <li>📱 2 Social Media Accounts Managed</li>
+        <li>📧 Business Email Setup</li>
+        <li>🔄 1 Weekly Update</li>
+      </ul>
+      <button class="w-full mt-6 py-3 bg-gradient-to-r from-[#3F9BDF] to-blue-500 text-white font-bold rounded-xl hover:shadow-lg hover:scale-105">Buy Now</button>
+    </div>
+
+    <!-- Growth Plan -->
+    <div class="bg-white rounded-2xl shadow-2xl border-2 border-blue-400 p-6 hover:scale-105 transition-transform duration-300">
+      <h3 class="text-2xl font-bold text-blue-600">🔵 Growth – $39/month ⭐</h3>
+      <p class="text-gray-500 mb-4">For Hustlers ready to scale</p>
+      <ul class="text-gray-700 space-y-2">
+        <li>📚 Everything in Starter</li>
+        <li>🎥 Premium Courses</li>
+        <li>🌐 Landing Page + Website</li>
+        <li>🌍 Free Domain (1 Year)</li>
+        <li>📱 5 Social Media Accounts</li>
+        <li>🔄 Updates Every 2 Days</li>
+      </ul>
+      <button class="w-full mt-6 py-3 bg-gradient-to-r from-[#3F9BDF] to-blue-500 text-white font-bold rounded-xl hover:shadow-lg hover:scale-105">Buy Now</button>
+    </div>
+
+    <!-- Elite Plan -->
+    <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform duration-300">
+      <h3 class="text-2xl font-bold text-red-600">🔴 Elite – $59/month 🚀</h3>
+      <p class="text-gray-500 mb-4">For Future Millionaires</p>
+      <ul class="text-gray-700 space-y-2">
+        <li>📚 Everything in Growth</li>
+        <li>🎓 Full Premium Courses + Templates</li>
+        <li>🏪 Ready-to-Sell Store Setup</li>
+        <li>🌍 Free Domain + Hosting</li>
+        <li>📱 6 Social Media Accounts Managed</li>
+        <li>🛠️ 24/7 Personal Support</li>
+        <li>🔄 Daily Updates + Guidance</li>
+        <li>🧠 Custom Growth Hacks</li>
+      </ul>
+      <button class="w-full mt-6 py-3 bg-gradient-to-r from-[#3F9BDF] to-blue-500 text-white font-bold rounded-xl hover:shadow-lg hover:scale-105">Buy Now</button>
+    </div>
+
+  </div>
+
+  <!-- Reviews -->
+  <div class="mt-16 px-6 md:px-20">
+    <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">💬 What Our Members Say</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl p-6 shadow-md">
+        <p>"Drovexra changed my business! I scaled 3x faster in 2 months."</p>
+        <h4 class="mt-3 font-bold text-gray-700">– Rahul, India 🇮🇳</h4>
       </div>
-    </div><!-- Growth Plan -->
-<div class="plan growth">
-  <h2>Growth Plan</h2>
-  <p>Designed for those who are ready to scale their journey.</p>
-  <div class="buttons">
-    <button class="btn inr" onclick="window.location.href='upi://pay?pa=7905315338@fam&pn=Drovexra&cu=INR&am=999'">INR</button>
-    <button class="btn usd" onclick="sendEmail('Growth Plan')">USD</button>
+      <div class="bg-white rounded-xl p-6 shadow-md">
+        <p>"Best investment I ever made. The Elite plan gave me a ready store."</p>
+        <h4 class="mt-3 font-bold text-gray-700">– Sarah, USA 🇺🇸</h4>
+      </div>
+      <div class="bg-white rounded-xl p-6 shadow-md">
+        <p>"Their support is top-notch. Feels like I have a personal mentor."</p>
+        <h4 class="mt-3 font-bold text-gray-700">– Ahmed, UAE 🇦🇪</h4>
+      </div>
+    </div>
   </div>
-</div>
-
-<!-- Elite Plan -->
-<div class="plan elite">
-  <h2>Elite Plan</h2>
-  <p>Best for professionals who want maximum value.</p>
-  <div class="buttons">
-    <button class="btn inr" onclick="window.location.href='upi://pay?pa=7905315338@fam&pn=Drovexra&cu=INR&am=1999'">INR</button>
-    <button class="btn usd" onclick="sendEmail('Elite Plan')">USD</button>
-  </div>
-</div>
-
-  </div>  <script>
-    function sendEmail(planName) {
-      const subject = `I want to buy the ${planName}`;
-      const body = `Hello Team Drovexra,%0D%0A%0D%0AI would like to purchase the ${planName}. Please guide me through the next steps.%0D%0A%0D%0ARegards,%0D%0A(User's Name)`;
-      window.location.href = `mailto:drovexra@gmail.com?subject=${subject}&body=${body}`;
-    }
-  </script></body>
-</html>
+</section>
