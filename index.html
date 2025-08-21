@@ -3,90 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Millionaire Blueprint</title>
+  <title>Drovexra Membership Plans</title>
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #3F9BDF, #FFFFFF);
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
       text-align: center;
+      padding: 40px 20px;
     }
-    .container {
-      background: rgba(0,0,0,0.7);
+    header h1 {
+      font-size: 2.5rem;
+      color: #0d47a1;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
       padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0px 0px 20px rgba(255,255,255,0.2);
-      max-width: 500px;
     }
-    h1 {
-      margin-bottom: 20px;
-      font-size: 2rem;
-      color: #00f7ff;
+    .card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
-    p {
-      margin-bottom: 30px;
-      font-size: 1.1rem;
-      color: #ddd;
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card h2 {
+      margin: 0 0 10px;
+    }
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #0d47a1;
+    }
+    ul {
+      text-align: left;
+      padding-left: 20px;
     }
     .btn {
       display: inline-block;
-      margin: 10px;
-      padding: 15px 30px;
+      margin-top: 15px;
+      padding: 12px 25px;
       font-size: 1rem;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: 0.3s;
       font-weight: bold;
-    }
-    .btn-inr {
-      background: #ff6600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #3F9BDF, #0d47a1);
       color: white;
-    }
-    .btn-usd {
-      background: #00cc66;
-      color: white;
+      transition: 0.3s;
     }
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0px 0px 15px rgba(255,255,255,0.3);
     }
-    #message {
-      margin-top: 20px;
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 300px;
+    }
+    .modal-content h3 {
+      margin-bottom: 20px;
+    }
+    .currency-btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
       font-size: 1rem;
-      color: #00ffea;
       font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .inr { background: #ff6600; color: white; }
+    .usd { background: #00cc66; color: white; }
+    .currency-btn:hover { opacity: 0.85; }
+    /* Reviews */
+    .reviews {
+      background: #f4f4f4;
+      padding: 40px;
+      text-align: center;
+    }
+    .review {
+      max-width: 600px;
+      margin: 20px auto;
+      font-style: italic;
+    }
+    .review span {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #0d47a1;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Millionaire Blueprint</h1>
-    <p>Choose your currency and get instant access to the ebook.</p>
-    
-    <button class="btn btn-inr" onclick="sendEmail('INR')">Buy in INR ₹</button>
-    <button class="btn btn-usd" onclick="sendEmail('USD')">Buy in USD $</button>
-    
-    <div id="message"></div>
+  <header>
+    <h1>🚀 Drovexra Membership Plans</h1>
+    <p>Choose your path. Scale your growth. Become unstoppable.</p>
+  </header>
+
+  <section class="plans">
+    <!-- Starter -->
+    <div class="card">
+      <h2>🟢 Starter Plan</h2>
+      <div class="price">$19/month</div>
+      <p>Perfect for Beginners</p>
+      <ul>
+        <li>📚 Exclusive eBooks (business + marketing)</li>
+        <li>🎯 Ads Run (Meta/TikTok/Google) (Additional Fee)</li>
+        <li>📱 2 Social Media Accounts Managed</li>
+        <li>📧 Business Email Setup</li>
+        <li>🔄 1 Weekly Update</li>
+      </ul>
+      <button class="btn" onclick="openModal('Starter Plan')">Buy Now</button>
+    </div>
+    <!-- Growth -->
+    <div class="card">
+      <h2>🔵 Growth Plan ⭐</h2>
+      <div class="price">$39/month</div>
+      <p>For Hustlers ready to scale</p>
+      <ul>
+        <li>📚 Everything in Starter</li>
+        <li>🎥 Premium Courses</li>
+        <li>🌐 Landing Page + Website</li>
+        <li>🌍 Free Domain (1 Year)</li>
+        <li>📱 5 Social Media Accounts</li>
+        <li>📧 Business Email Setup</li>
+        <li>🔄 Updates Every 2 Days</li>
+      </ul>
+      <button class="btn" onclick="openModal('Growth Plan')">Buy Now</button>
+    </div>
+    <!-- Elite -->
+    <div class="card">
+      <h2>🔴 Elite Plan 🚀</h2>
+      <div class="price">$59/month</div>
+      <p>For Future Millionaires</p>
+      <ul>
+        <li>📚 Everything in Growth</li>
+        <li>🎓 Full Premium Courses + Templates</li>
+        <li>🏪 Ready-to-Sell Store Setup</li>
+        <li>🌍 Free Domain + Hosting</li>
+        <li>📱 6 Social Media Accounts Managed</li>
+        <li>🎯 Ads Run on All Platforms</li>
+        <li>🛠️ 24/7 Personal Support</li>
+        <li>🔄 Daily Updates & Guidance</li>
+        <li>🧠 Custom Growth Hacks</li>
+      </ul>
+      <button class="btn" onclick="openModal('Elite Plan')">Buy Now</button>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="reviews">
+    <h2>What Our Members Say</h2>
+    <div class="review">
+      "Drovexra changed my business completely. I scaled 5x in just 2 months!"
+      <span>- Rahul S.</span>
+    </div>
+    <div class="review">
+      "Best investment I ever made. The support is insane 🔥."
+      <span>- Priya K.</span>
+    </div>
+    <div class="review">
+      "Elite plan is literally a cheat code for success 🚀."
+      <span>- John M.</span>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <h3 id="planName">Select Currency</h3>
+      <button class="currency-btn inr" onclick="payINR()">Pay in INR</button>
+      <button class="currency-btn usd" onclick="payUSD()">Pay in USD</button>
+      <button class="currency-btn" style="background:#ccc;color:#000;" onclick="closeModal()">Cancel</button>
+    </div>
   </div>
 
   <script>
-    function sendEmail(currency) {
-      // Demo: Sirf message dikhayega
-      document.getElementById("message").innerText = 
-        "✅ Order placed successfully in " + currency + ". Email has been sent!";
-      
-      // Real email ke liye EmailJS / backend API call lagani hogi
-      // Example (EmailJS):
-      // emailjs.send("serviceID", "templateID", {
-      //   currency: currency,
-      //   user_email: "customer@gmail.com"
-      // });
+    let selectedPlan = "";
+
+    function openModal(plan) {
+      selectedPlan = plan;
+      document.getElementById("planName").innerText = plan + " - Choose Currency";
+      document.getElementById("paymentModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("paymentModal").style.display = "none";
+    }
+
+    function payINR() {
+      window.location.href = "upi://pay?pa=7905315338@fam&pn=Drovexra&am=0&cu=INR";
+    }
+
+    function payUSD() {
+      let subject = encodeURIComponent("Purchase Request: " + selectedPlan);
+      let body = encodeURIComponent("Hello Drovexra Team,\n\nI want to purchase the " + selectedPlan + ".\nPlease guide me with the next steps.\n\nThank you!");
+      window.location.href = "mailto:drovexra@gmail.com?subject=" + subject + "&body=" + body;
     }
   </script>
 </body>
