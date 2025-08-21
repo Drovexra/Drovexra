@@ -1,81 +1,93 @@
-<section class="py-16 bg-gradient-to-r from-[#3F9BDF] to-white">
-  <div class="text-center mb-12">
-    <h2 class="text-4xl font-extrabold text-gray-800">🚀 Drovexra Membership Plans</h2>
-    <p class="text-lg text-gray-600">Choose your path. Scale your growth. Become unstoppable.</p>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Millionaire Blueprint</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    let currency = "USD";
+    let prices = {
+      Starter: { USD: 9, INR: 750 },
+      Growth: { USD: 29, INR: 2400 },
+      Elite: { USD: 99, INR: 8200 },
+    };
 
-  <!-- Currency Switch -->
-  <div class="flex justify-center mb-8">
-    <button class="px-4 py-2 bg-gray-200 rounded-l-lg hover:bg-blue-300">INR ₹</button>
-    <button class="px-4 py-2 bg-gray-200 rounded-r-lg hover:bg-blue-300">USD $</button>
-  </div>
+    function toggleCurrency() {
+      currency = currency === "USD" ? "INR" : "USD";
+      document.getElementById("currency-btn").innerText = currency;
+      for (let plan in prices) {
+        document.getElementById(plan + "-price").innerText =
+          (currency === "USD" ? "$" : "₹") + prices[plan][currency];
+      }
+    }
 
-  <div class="grid md:grid-cols-3 gap-8 px-6 md:px-16">
-    
-    <!-- Starter Plan -->
-    <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform duration-300">
-      <h3 class="text-2xl font-bold text-green-600">🟢 Starter – $19/month</h3>
-      <p class="text-gray-500 mb-4">Perfect for Beginners</p>
-      <ul class="text-gray-700 space-y-2">
-        <li>📚 Exclusive eBooks</li>
-        <li>🎯 Ads Run (Additional Fee)</li>
-        <li>📱 2 Social Media Accounts Managed</li>
-        <li>📧 Business Email Setup</li>
-        <li>🔄 1 Weekly Update</li>
+    function sendEmail(plan) {
+      let subject = `Purchase Request: ${plan} Plan (${currency})`;
+      let body = `Hi Team,%0D%0A%0D%0AI want to purchase the ${plan} Plan.%0D%0ASelected Currency: ${currency}.%0D%0APlease guide me with the next steps.%0D%0A%0D%0ARegards,`;
+      window.location.href = `mailto:youremail@example.com?subject=${subject}&body=${body}`;
+    }
+  </script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 to-black text-white font-sans">
+  <!-- Hero Section -->
+  <section class="text-center py-20 px-6">
+    <h1 class="text-5xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+      Millionaire Blueprint
+    </h1>
+    <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+      Unlock the secrets of billionaires with psychology, habits, and systems that build empires.
+    </p>
+    <button id="currency-btn"
+      onclick="toggleCurrency()"
+      class="mt-6 px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl shadow-lg hover:scale-105 transition transform">
+      USD
+    </button>
+  </section>
+
+  <!-- Pricing Plans -->
+  <section class="grid md:grid-cols-3 gap-8 px-6 max-w-6xl mx-auto pb-20">
+    <!-- Starter -->
+    <div class="bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-purple-500/50 transition transform hover:-translate-y-2">
+      <h2 class="text-2xl font-bold mb-4">Starter</h2>
+      <p id="Starter-price" class="text-4xl font-extrabold mb-6">$9</p>
+      <ul class="text-gray-300 mb-6 space-y-2">
+        <li>✔ Basic Access</li>
+        <li>✔ 1 Free Ebook</li>
+        <li>✔ Email Support</li>
       </ul>
-      <button class="w-full mt-6 py-3 bg-gradient-to-r from-[#3F9BDF] to-blue-500 text-white font-bold rounded-xl hover:shadow-lg hover:scale-105">Buy Now</button>
+      <button onclick="sendEmail('Starter')" class="w-full py-3 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl hover:scale-105 transition">
+        Buy Now
+      </button>
     </div>
 
-    <!-- Growth Plan -->
-    <div class="bg-white rounded-2xl shadow-2xl border-2 border-blue-400 p-6 hover:scale-105 transition-transform duration-300">
-      <h3 class="text-2xl font-bold text-blue-600">🔵 Growth – $39/month ⭐</h3>
-      <p class="text-gray-500 mb-4">For Hustlers ready to scale</p>
-      <ul class="text-gray-700 space-y-2">
-        <li>📚 Everything in Starter</li>
-        <li>🎥 Premium Courses</li>
-        <li>🌐 Landing Page + Website</li>
-        <li>🌍 Free Domain (1 Year)</li>
-        <li>📱 5 Social Media Accounts</li>
-        <li>🔄 Updates Every 2 Days</li>
+    <!-- Growth -->
+    <div class="bg-gray-900 border-2 border-purple-500 rounded-2xl p-8 shadow-xl hover:shadow-blue-500/50 transition transform hover:-translate-y-2 scale-105">
+      <h2 class="text-2xl font-bold mb-4">Growth</h2>
+      <p id="Growth-price" class="text-4xl font-extrabold mb-6">$29</p>
+      <ul class="text-gray-300 mb-6 space-y-2">
+        <li>✔ Everything in Starter</li>
+        <li>✔ 5 Premium Ebooks</li>
+        <li>✔ Priority Support</li>
       </ul>
-      <button class="w-full mt-6 py-3 bg-gradient-to-r from-[#3F9BDF] to-blue-500 text-white font-bold rounded-xl hover:shadow-lg hover:scale-105">Buy Now</button>
+      <button onclick="sendEmail('Growth')" class="w-full py-3 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl hover:scale-105 transition">
+        Buy Now
+      </button>
     </div>
 
-    <!-- Elite Plan -->
-    <div class="bg-white rounded-2xl shadow-lg p-6 hover:scale-105 transition-transform duration-300">
-      <h3 class="text-2xl font-bold text-red-600">🔴 Elite – $59/month 🚀</h3>
-      <p class="text-gray-500 mb-4">For Future Millionaires</p>
-      <ul class="text-gray-700 space-y-2">
-        <li>📚 Everything in Growth</li>
-        <li>🎓 Full Premium Courses + Templates</li>
-        <li>🏪 Ready-to-Sell Store Setup</li>
-        <li>🌍 Free Domain + Hosting</li>
-        <li>📱 6 Social Media Accounts Managed</li>
-        <li>🛠️ 24/7 Personal Support</li>
-        <li>🔄 Daily Updates + Guidance</li>
-        <li>🧠 Custom Growth Hacks</li>
+    <!-- Elite -->
+    <div class="bg-gray-800 rounded-2xl p-8 shadow-xl hover:shadow-pink-500/50 transition transform hover:-translate-y-2">
+      <h2 class="text-2xl font-bold mb-4">Elite</h2>
+      <p id="Elite-price" class="text-4xl font-extrabold mb-6">$99</p>
+      <ul class="text-gray-300 mb-6 space-y-2">
+        <li>✔ Everything in Growth</li>
+        <li>✔ Lifetime Updates</li>
+        <li>✔ 1-on-1 Mentorship</li>
       </ul>
-      <button class="w-full mt-6 py-3 bg-gradient-to-r from-[#3F9BDF] to-blue-500 text-white font-bold rounded-xl hover:shadow-lg hover:scale-105">Buy Now</button>
+      <button onclick="sendEmail('Elite')" class="w-full py-3 bg-gradient-to-r from-pink-500 to-red-600 rounded-xl hover:scale-105 transition">
+        Buy Now
+      </button>
     </div>
-
-  </div>
-
-  <!-- Reviews -->
-  <div class="mt-16 px-6 md:px-20">
-    <h3 class="text-3xl font-bold text-gray-800 text-center mb-8">💬 What Our Members Say</h3>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-white rounded-xl p-6 shadow-md">
-        <p>"Drovexra changed my business! I scaled 3x faster in 2 months."</p>
-        <h4 class="mt-3 font-bold text-gray-700">– Rahul, India 🇮🇳</h4>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow-md">
-        <p>"Best investment I ever made. The Elite plan gave me a ready store."</p>
-        <h4 class="mt-3 font-bold text-gray-700">– Sarah, USA 🇺🇸</h4>
-      </div>
-      <div class="bg-white rounded-xl p-6 shadow-md">
-        <p>"Their support is top-notch. Feels like I have a personal mentor."</p>
-        <h4 class="mt-3 font-bold text-gray-700">– Ahmed, UAE 🇦🇪</h4>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+</body>
+</html>
