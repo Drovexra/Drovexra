@@ -3,99 +3,76 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Body Styling */
+/* Background Gradient */
 body {
-  background: linear-gradient(135deg, #1e1e2f, #2e2e52, #1a1a2e);
-  color: #fff;
-  min-height: 100vh;
+  background: linear-gradient(135deg, #69B4E3, #FFFBFB, #D2F1FF);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 20px;
 }
 
-/* Container */
-.container {
-  width: 100%;
-  max-width: 1100px;
+/* Hero Section */
+.hero {
   text-align: center;
+  padding: 40px;
+  max-width: 800px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8); /* soft transparent card */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  backdrop-filter: blur(8px);
 }
 
 /* Heading */
-.container h1 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  background: linear-gradient(45deg, #00ffcc, #0077ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.container p {
-  font-size: 1.2rem;
-  margin-bottom: 50px;
-  color: #ccc;
-}
-
-/* Membership Cards */
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-  border-radius: 16px;
-  padding: 30px 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-  transition: all 0.4s ease-in-out;
-  position: relative;
-}
-
-.card:hover {
-  transform: translateY(-10px) scale(1.05);
-  box-shadow: 0 15px 30px rgba(0,0,0,0.7);
-}
-
-.card h2 {
-  font-size: 2rem;
+.hero h1 {
+  font-size: 2.5rem;
   margin-bottom: 15px;
-  color: #00ffcc;
+  color: #1E293B;
+  font-weight: 700;
 }
 
-.card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 20px;
-  color: #ffcc00;
+/* Paragraph */
+.hero p {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #334155;
+  margin-bottom: 25px;
 }
 
-.card ul {
-  list-style: none;
-  margin-bottom: 20px;
-}
-
-.card ul li {
-  font-size: 1rem;
-  margin: 10px 0;
-  color: #ddd;
-}
-
-/* Button */
-.card a {
-  display: inline-block;
-  padding: 12px 25px;
-  background: linear-gradient(45deg, #00ffcc, #0077ff);
-  border-radius: 8px;
-  color: #fff;
-  text-decoration: none;
+/* Highlighted Text */
+.highlight {
+  color: #0f62fe;
   font-weight: bold;
-  transition: background 0.3s ease;
 }
 
-.card a:hover {
-  background: linear-gradient(45deg, #ff00cc, #ff7700);
+/* CTA Button */
+.cta-btn {
+  display: inline-block;
+  background: #0f62fe;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: #0353e9;
+  transform: scale(1.05);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
 }
