@@ -3,262 +3,200 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra Membership Plans</title>
+  <title>Drovexra Membership</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(135deg, #3F9BDF, #FFFFFF);
-      color: #222;
-      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: white;
+      overflow-x: hidden;
     }
+
     header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
     }
+
     header h1 {
-      font-size: 2.5rem;
-      color: #0d47a1;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      color: #38bdf8;
     }
+
     header p {
       font-size: 1.2rem;
-      color: #333;
+      opacity: 0.9;
     }
-    .plans {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      padding: 40px;
+
+    .stats {
+      text-align: center;
+      margin: 30px 0;
+      font-size: 1.3rem;
     }
-    .card {
-      background: rgba(255,255,255,0.9);
-      border-radius: 15px;
-      padding: 25px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+
+    .buttons {
+      text-align: center;
+      margin: 30px 0;
     }
-    .card:hover {
-      transform: translateY(-10px);
-    }
-    .card h2 {
-      margin: 0 0 10px;
-    }
-    .price {
-      font-size: 1.4rem;
-      font-weight: bold;
-      margin-bottom: 15px;
-      color: #0d47a1;
-    }
-    ul {
-      text-align: left;
-      padding-left: 20px;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 12px 25px;
-      font-size: 1rem;
-      font-weight: bold;
+
+    .buttons button {
+      background: #38bdf8;
       border: none;
+      padding: 14px 28px;
+      margin: 10px;
       border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
-      background: linear-gradient(90deg, #3F9BDF, #0d47a1);
-      color: white;
-      transition: 0.3s;
+      transition: transform 0.2s, background 0.3s;
     }
-    .btn:hover {
+
+    .buttons button:hover {
+      background: #0ea5e9;
       transform: scale(1.05);
     }
-    /* Modal */
-    .modal {
-      display: none;
+
+    .offer-note {
+      text-align: center;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      color: #fbbf24;
+    }
+
+    /* Notification */
+    .notification {
       position: fixed;
-      z-index: 999;
-      left: 0; top: 0;
+      bottom: 20px;
+      left: 20px;
+      background: #1e40af;
+      padding: 15px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      display: none;
+      animation: slideUp 0.5s ease forwards;
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    /* Email popup */
+    .popup {
+      position: fixed;
+      top: 0; left: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.7);
+      display: none;
       justify-content: center;
       align-items: center;
     }
-    .modal-content {
-      background: white;
+
+    .popup-content {
+      background: #1e293b;
       padding: 30px;
-      border-radius: 12px;
+      border-radius: 10px;
       text-align: center;
       width: 300px;
     }
-    .modal-content h3 {
+
+    .popup-content h2 {
       margin-bottom: 20px;
+      color: #38bdf8;
     }
-    .currency-btn {
-      display: block;
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      font-size: 1rem;
-      font-weight: bold;
+
+    .popup-content input {
+      padding: 10px;
+      width: 90%;
+      margin-bottom: 15px;
       border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .inr { background: #ff6600; color: white; }
-    .usd { background: #00cc66; color: white; }
-    .currency-btn:hover { opacity: 0.85; }
-
-    /* Reviews */
-    .reviews {
-      background: #f4f4f4;
-      padding: 40px;
-      text-align: center;
-    }
-    .review {
-      max-width: 600px;
-      margin: 20px auto;
-      font-style: italic;
-    }
-    .review span {
-      display: block;
-      margin-top: 10px;
-      font-weight: bold;
-      color: #0d47a1;
+      border-radius: 6px;
     }
 
-    /* Telegram Button */
-    #telegramBtn {
-      display: none;
-      margin-top: 15px;
-      padding: 12px 25px;
-      background: #0088cc;
+    .popup-content button {
+      background: #22c55e;
       color: white;
       border: none;
-      border-radius: 8px;
+      padding: 10px 20px;
+      border-radius: 6px;
       cursor: pointer;
-      font-size: 1rem;
-      font-weight: bold;
-      transition: 0.3s;
     }
-    #telegramBtn:hover {
-      transform: scale(1.05);
-      background: #0077b6;
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      border-top: 1px solid #334155;
+      font-size: 0.9rem;
+      opacity: 0.8;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>🚀 Drovexra Membership Plans</h1>
-    <p>Choose your path. Scale your growth. Become unstoppable.</p>
+    <h1>🚀 Drovexra Membership</h1>
+    <p>Building tomorrow’s billionaires — Join the fastest growing digital revolution.</p>
   </header>
 
-  <section class="plans">
-    <!-- Starter -->
-    <div class="card">
-      <h2>🟢 Starter Plan</h2>
-      <div class="price">$19/month</div>
-      <p>Perfect for Beginners</p>
-      <ul>
-        <li>📚 Exclusive eBooks (business + marketing)</li>
-        <li>🎯 Ads Run (Meta/TikTok/Google) (Additional Fee)</li>
-        <li>📱 2 Social Media Accounts Managed</li>
-        <li>📧 Business Email Setup</li>
-        <li>🔄 1 Weekly Update</li>
-      </ul>
-      <button class="btn" onclick="openModal('Starter Plan')">Buy Now</button>
-    </div>
-    <!-- Growth -->
-    <div class="card">
-      <h2>🔵 Growth Plan ⭐</h2>
-      <div class="price">$39/month</div>
-      <p>For Hustlers ready to scale</p>
-      <ul>
-        <li>📚 Everything in Starter</li>
-        <li>🎥 Premium Courses</li>
-        <li>🌐 Landing Page + Website</li>
-        <li>🌍 Free Domain (1 Year)</li>
-        <li>📱 5 Social Media Accounts</li>
-        <li>📧 Business Email Setup</li>
-        <li>🔄 Updates Every 2 Days</li>
-      </ul>
-      <button class="btn" onclick="openModal('Growth Plan')">Buy Now</button>
-    </div>
-    <!-- Elite -->
-    <div class="card">
-      <h2>🔴 Elite Plan 🚀</h2>
-      <div class="price">$59/month</div>
-      <p>For Future Millionaires</p>
-      <ul>
-        <li>📚 Everything in Growth</li>
-        <li>🎓 Full Premium Courses + Templates</li>
-        <li>🏪 Ready-to-Sell Store Setup</li>
-        <li>🌍 Free Domain + Hosting</li>
-        <li>📱 6 Social Media Accounts Managed</li>
-        <li>🎯 Ads Run on All Platforms</li>
-        <li>🛠️ 24/7 Personal Support</li>
-        <li>🔄 Daily Updates & Guidance</li>
-        <li>🧠 Custom Growth Hacks</li>
-      </ul>
-      <button class="btn" onclick="openModal('Elite Plan')">Buy Now</button>
-    </div>
-  </section>
+  <div class="stats">
+    📊 Market Growth: <br>
+    2024 → <b>$200 Billion</b> <br>
+    2030 → <b>$1 Trillion</b>
+  </div>
 
-  <!-- Reviews -->
-  <section class="reviews">
-    <h2>What Our Members Say</h2>
-    <div class="review">
-      "Drovexra changed my business completely. I scaled 5x in just 2 months!"
-      <span>- Rahul S.</span>
-    </div>
-    <div class="review">
-      "Best investment I ever made. The support is insane 🔥."
-      <span>- Priya K.</span>
-    </div>
-    <div class="review">
-      "Elite plan is literally a cheat code for success 🚀."
-      <span>- John M.</span>
-    </div>
-  </section>
+  <div class="buttons">
+    <button onclick="alert('Dropshipping section coming soon!')">📦 Dropshipping</button>
+    <button onclick="openPopup()">💻 Digital Product</button>
+  </div>
 
-  <!-- Modal -->
-  <div id="paymentModal" class="modal">
-    <div class="modal-content">
-      <h3 id="planName">Select Currency</h3>
-      <button class="currency-btn inr" onclick="payINR()">Pay in INR</button>
-      <button class="currency-btn usd" onclick="payUSD()">Pay in USD</button>
-      <button class="currency-btn" style="background:#ccc;color:#000;" onclick="closeModal()">Cancel</button>
-      <!-- Telegram Button -->
-      <button id="telegramBtn" onclick="window.location.href='https://t.me/drovexa'">Talk to Drovexra</button>
+  <div class="offer-note">
+    ⚠️ Only 10 days left! After that, price will increase by 33%.
+  </div>
+
+  <!-- Notification -->
+  <div class="notification" id="notification"></div>
+
+  <!-- Email Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h2>Enter Your Email</h2>
+      <input type="email" id="emailInput" placeholder="you@example.com">
+      <br>
+      <button onclick="submitEmail()">Continue</button>
     </div>
   </div>
 
+  <footer>
+    © by Drovexra owner Shiva Vyas
+  </footer>
+
   <script>
-    let selectedPlan = "";
+    // Live notification
+    const names = ["Rohit", "Aman", "Priya", "Sneha", "Arjun", "Karan", "Isha"];
+    function showNotification() {
+      const name = names[Math.floor(Math.random() * names.length)];
+      const notification = document.getElementById("notification");
+      notification.innerText = name + " just bought Drovexra plan!";
+      notification.style.display = "block";
+      setTimeout(() => { notification.style.display = "none"; }, 4000);
+    }
+    setInterval(showNotification, 6000);
 
-    function openModal(plan) {
-      selectedPlan = plan;
-      document.getElementById("planName").innerText = plan + " - Choose Currency";
-      document.getElementById("paymentModal").style.display = "flex";
+    // Popup controls
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
     }
 
-    function closeModal() {
-      document.getElementById("paymentModal").style.display = "none";
-      document.getElementById("telegramBtn").style.display = "none"; // Reset for next time
-    }
-
-    function payINR() {
-      // open UPI
-      window.location.href = "upi://pay?pa=7905315338@fam&pn=Drovexra&am=0&cu=INR";
-
-      // after 8 sec show telegram button
-      setTimeout(function() {
-        document.getElementById("telegramBtn").style.display = "block";
-      }, 8000);
-    }
-
-    function payUSD() {
-      let subject = encodeURIComponent("Purchase Request: " + selectedPlan);
-      let body = encodeURIComponent("Hello Drovexra Team,\n\nI want to purchase the " + selectedPlan + ".\nPlease guide me with the next steps.\n\nThank you!");
-      window.location.href = "mailto:drovexra@gmail.com?subject=" + subject + "&body=" + body;
+    function submitEmail() {
+      const email = document.getElementById("emailInput").value;
+      if (email.trim() === "") {
+        alert("Please enter a valid email!");
+      } else {
+        window.location.href = "membership/index.html?email=" + encodeURIComponent(email);
+      }
     }
   </script>
+
 </body>
 </html>
