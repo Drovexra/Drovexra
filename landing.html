@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drovexra Landing Page</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(90deg, #64b5f6, #ffffff, #bbdefb);
+      color: #222;
+      text-align: center;
+    }
+
+    header {
+      padding: 50px 20px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #0d47a1;
+    }
+
+    .highlight {
+      font-size: 1.2rem;
+      margin: 20px auto;
+      max-width: 800px;
+      line-height: 1.6;
+    }
+
+    .stats {
+      margin: 30px 0;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .btn-container {
+      margin: 50px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #3F9BDF, #0d47a1);
+      color: white;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 20px;
+      background: rgba(0,0,0,0.05);
+      font-size: 0.9rem;
+    }
+
+    /* Notification popup */
+    .notification {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      background: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      font-size: 0.9rem;
+      display: none;
+      animation: fadein 0.5s;
+    }
+
+    @keyframes fadein {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* Email popup */
+    .email-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .email-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .email-content input {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .email-content button {
+      padding: 10px 20px;
+      background: #0d47a1;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🚀 Welcome to Drovexra</h1>
+    <p class="highlight">
+      This is the plan for people who want to start their growth and serious e-commerce business with Drovexra.
+    </p>
+    <p class="stats">
+      📈 In 2024, the e-commerce market was worth <b>$6 Trillion+</b>, and by 2030 it is expected to reach <b>$12 Trillion+</b>!  
+      You can also be a part of this massive growth with Drovexra.
+    </p>
+    <p><b>⚡ Hurry! Plans are valid only for 10 days. After that, prices will increase by 33%.</b></p>
+  </header>
+
+  <!-- Buttons -->
+  <div class="btn-container">
+    <button class="btn">Dropshipping</button>
+    <button class="btn" onclick="openEmailModal()">Digital Product</button>
+  </div>
+
+  <!-- Email Modal -->
+  <div class="email-modal" id="emailModal">
+    <div class="email-content">
+      <h3>Enter your email to continue</h3>
+      <input type="email" id="userEmail" placeholder="Enter your email" required>
+      <br>
+      <button onclick="redirectToPlans()">Submit</button>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div class="notification" id="notification"></div>
+
+  <footer>
+    © by Drovexra owner Shiva Vyas
+  </footer>
+
+  <script>
+    // Notification system
+    const names = ["Rahul", "Priya", "John", "Sneha", "Aman", "Neha", "Karan", "Pooja", "Arjun", "Simran", "Raj", "Meena", "Ankit", "Ravi", "Sahil", "Divya", "Vikas", "Isha", "Mohit", "Akash"];
+    const notification = document.getElementById("notification");
+
+    function showNotification() {
+      const randomName = names[Math.floor(Math.random() * names.length)];
+      notification.innerText = randomName + " just purchased a Drovexra Plan!";
+      notification.style.display = "block";
+      setTimeout(() => {
+        notification.style.display = "none";
+      }, 4000);
+    }
+
+    setInterval(showNotification, 6000);
+
+    // Email modal
+    function openEmailModal() {
+      document.getElementById("emailModal").style.display = "flex";
+    }
+
+    function redirectToPlans() {
+      let email = document.getElementById("userEmail").value;
+      if(email) {
+        // redirect to plans page
+        window.location.href = "plans.html"; // apna plans page ka URL dalna
+      } else {
+        alert("Please enter a valid email!");
+      }
+    }
+  </script>
+
+</body>
+</html>
