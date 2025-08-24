@@ -3,175 +3,173 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra - Landing Page</title>
-  <script src="//embed.typeform.com/next/embed.js"></script>
+  <title>Plans</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      color: #111;
-      background: linear-gradient(135deg, #69B4E3, #FFFBFB, #D2F1FF);
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
     }
 
     header {
-      text-align: center;
-      padding: 60px 20px;
-    }
-
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      font-weight: 700;
-      color: #1e293b;
-    }
-
-    header p {
-      font-size: 1.3rem;
-      color: #334155;
-    }
-
-    .highlight {
-      font-size: 1.4rem;
-      margin: 30px auto;
-      text-align: center;
-      font-weight: 500;
-      color: #1f2937;
-      max-width: 900px;
-      background: rgba(255,255,255,0.8);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-    }
-
-    .btn-container {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .btn {
       background: #111;
-      color: #fff;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 10px;
-      margin: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s;
-    }
-
-    .btn:hover {
-      background: #444;
-      transform: translateY(-2px);
-    }
-
-    .notification {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #fff;
-      padding: 12px 18px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      font-size: 0.95rem;
-      display: none;
-      animation: fadeInOut 6s ease-in-out forwards;
-      z-index: 1000;
-    }
-
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(-20px);}
-      10%, 90% { opacity: 1; transform: translateY(0);}
-      100% { opacity: 0; transform: translateY(-20px);}
-    }
-
-    .hero-img {
-      display: block;
-      margin: 40px auto;
-      max-width: 90%;
-      border-radius: 14px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
-    }
-
-    footer {
-      text-align: center;
+      color: white;
       padding: 20px;
-      margin-top: 40px;
-      background: rgba(255,255,255,0.7);
-      font-size: 0.95rem;
+      text-align: center;
+      font-size: 24px;
     }
+
+    .plans {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .plan-btn {
+      padding: 15px 25px;
+      font-size: 18px;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      background: #007bff;
+      color: white;
+      transition: 0.3s;
+    }
+
+    .plan-btn:hover {
+      background: #0056b3;
+    }
+
+    /* Popup styles */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      animation: slideUp 0.4s;
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    .popup input {
+      width: 90%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .popup button {
+      padding: 10px 20px;
+      background: #28a745;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background: #218838;
+    }
+
+    /* About section */
+    .about {
+      background: white;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .about img {
+      max-width: 500px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Welcome to Drovexra 🚀</h1>
-    <p>The Future of Digital Growth & E-commerce Starts Here</p>
+    Our Plans
   </header>
 
-  <img src="your-image.jpg" alt="Drovexra Means Business" class="hero-img">
+  <!-- Plan Buttons -->
+  <section class="plans">
+    <button class="plan-btn" onclick="openPopup('dropshipping')">Dropshipping</button>
+    <button class="plan-btn" onclick="openPopup('digital')">Digital Product</button>
+    <button class="plan-btn" onclick="openPopup('investing')">Investing</button>
+  </section>
 
-  <p class="highlight">
-    This is the plan for people, who want to start their growing and serious e-commerce business.<br><br>
-    💰 E-commerce market size in 2024: <b>$15 Billion</b><br>
-    📈 Expected size by 2030: <b>$200 Billion+</b><br><br>
-    Join the revolution with <b>Drovexra</b> today!  
-    <br><span style="color:red; font-weight:600;">⚡ Plans valid for 10 days only — after that price increases by 33%!</span>
-  </p>
-
-  <div class="btn-container">
-    <button class="btn" id="dropshippingBtn">Dropshipping</button>
-    <button class="btn" id="digitalBtn">Digital Product</button>
-    <button class="btn" id="investingBtn">Investing</button>
+  <!-- Popup -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>Enter your Email</h3>
+      <input type="email" id="userEmail" placeholder="Your Email" required>
+      <button onclick="redirect()">Continue</button>
+    </div>
   </div>
 
-  <footer>
-    © by Drovexra | Owner: Shiva Vyas
-  </footer>
-
-  <!-- Notifications -->
-  <div id="notification" class="notification"></div>
+  <!-- About Section -->
+  <section class="about">
+    <h2>About Us</h2>
+    <p>We provide the best plans to grow your business and personal wealth journey.</p>
+    <img src="your-photo.jpg" alt="About Image">
+  </section>
 
   <script>
-    // Random Notifications
-    const names = ["Aarav","Vihaan","Vivaan","Aditya","Arjun","Sai","Reyansh","Krishna","Ishaan","Shaurya",
-                   "Atharv","Rudra","Kabir","Rohan","Aryan","Ananya","Ira","Diya","Myra","Aadhya"];
-    const notifBox = document.getElementById("notification");
+    let selectedPlan = "";
 
-    function showNotification() {
-      const name = names[Math.floor(Math.random()*names.length)];
-      notifBox.innerText = name + " just purchased a Drovexra plan!";
-      notifBox.style.display = "block";
-      setTimeout(()=>notifBox.style.display="none", 6000);
-    }
-    setInterval(showNotification, 7000);
-
-    // Typeform Popup Integration
-    const formId = "01K3EPYXJTRREC525RBP8AV908";
-
-    function openForm(redirectUrl) {
-      window.typeformEmbed.makePopup(`https://form.typeform.com/to/${formId}`, {
-        mode: "popup",
-        hideScrollbars: true,
-        onSubmit: function() {
-          window.location.href = redirectUrl;
-        }
-      }).open();
+    function openPopup(plan) {
+      selectedPlan = plan;
+      document.getElementById("popup").style.display = "flex";
     }
 
-    document.getElementById("digitalBtn").addEventListener("click", function() {
-      openForm("membership.html");
-    });
+    function redirect() {
+      let email = document.getElementById("userEmail").value;
+      if (email === "") {
+        alert("Please enter your email");
+        return;
+      }
 
-    document.getElementById("dropshippingBtn").addEventListener("click", function() {
-      openForm("dropshipping.html");
-    });
+      // Redirect based on plan
+      if (selectedPlan === "dropshipping") {
+        window.location.href = "dropshipping.html";
+      } else if (selectedPlan === "digital") {
+        window.location.href = "membership.html";
+      } else if (selectedPlan === "investing") {
+        window.location.href = "investing.html";
+      }
+    }
 
-    document.getElementById("investingBtn").addEventListener("click", function() {
-      openForm("investing.html");
-    });
+    // Close popup when clicking outside
+    window.onclick = function(e) {
+      if (e.target === document.getElementById("popup")) {
+        document.getElementById("popup").style.display = "none";
+      }
+    }
   </script>
-
 </body>
 </html>
