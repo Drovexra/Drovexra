@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drovexra - Landing Page</title>
+  <script src="https://embed.typeform.com/next/embed.js"></script>
   <style>
     body {
       margin: 0;
@@ -67,8 +68,8 @@
 
     .notification {
       position: fixed;
-      bottom: 20px;
-      left: 20px;
+      top: 20px;
+      right: 20px;
       background: #fff;
       padding: 12px 18px;
       border-radius: 8px;
@@ -80,33 +81,9 @@
     }
 
     @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(20px);}
+      0% { opacity: 0; transform: translateY(-20px);}
       10%, 90% { opacity: 1; transform: translateY(0);}
-      100% { opacity: 0; transform: translateY(20px);}
-    }
-
-    .about {
-      padding: 50px 20px;
-      max-width: 1000px;
-      margin: auto;
-      text-align: left;
-      background: rgba(255,255,255,0.85);
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-    }
-
-    .about h2 {
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 2.2rem;
-      color: #1e293b;
-    }
-
-    .about p, .about li {
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-      line-height: 1.6;
-      color: #334155;
+      100% { opacity: 0; transform: translateY(-20px);}
     }
 
     footer {
@@ -115,34 +92,6 @@
       margin-top: 40px;
       background: rgba(255,255,255,0.7);
       font-size: 0.95rem;
-    }
-
-    /* Email Form */
-    #email-box {
-      display: none;
-      text-align: center;
-      margin: 20px;
-    }
-    #userEmail {
-      padding: 12px;
-      width: 260px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2.2rem;
-      }
-      .highlight {
-        font-size: 1.1rem;
-        padding: 15px;
-      }
-      .about {
-        padding: 30px 15px;
-      }
     }
   </style>
 </head>
@@ -162,38 +111,9 @@
   </p>
 
   <div class="btn-container">
-    <button class="btn">Dropshipping</button>
-    <button class="btn" onclick="showEmailBox()">Digital Product</button>
+    <button class="btn" id="dropshippingBtn">Dropshipping</button>
+    <button class="btn" id="digitalBtn">Digital Product</button>
   </div>
-
-  <!-- Email Form -->
-  <div id="email-box">
-    <input type="email" id="userEmail" placeholder="Enter your email">
-    <button class="btn" onclick="goToPlans()">Continue</button>
-  </div>
-
-  <!-- About Section -->
-  <section class="about">
-    <h2>About Drovexra</h2>
-    <p>Drovexra is not just a company, it’s a movement.
-    In the fast-changing digital world, where ideas often die before they rise, Drovexra stands as the bridge between dreams and execution.</p>
-
-    <p>We empower creators, entrepreneurs, and visionaries to start from nothing and build everything — using the power of digital products, branding, and smart marketing.</p>
-
-    <p>From the very first step to the global stage, Drovexra is your partner in:</p>
-    <ul>
-      <li>🚀 Digital Product Creation</li>
-      <li>💡 Brand Positioning & Strategy</li>
-      <li>📈 Growth Marketing & Automation</li>
-      <li>🌐 Global Digital Distribution</li>
-    </ul>
-
-    <p>We believe the future belongs to those who control the digital market — and at Drovexra, we give you the tools, systems, and mindset to not just compete, but dominate.</p>
-
-    <p>Because in this era, it’s not about big fish eating small fish… 👉 It’s about fast fish creating their own ocean.</p>
-
-    <p><b>That’s the Drovexra vision: taking you from Nothing to Everything</b></p>
-  </section>
 
   <footer>
     © by Drovexra | Owner: Shiva Vyas
@@ -216,20 +136,33 @@
     }
     setInterval(showNotification, 7000);
 
-    // Email form
-    function showEmailBox(){
-      document.getElementById("email-box").style.display = "block";
-    }
-    function goToPlans(){
-      const email = document.getElementById("userEmail").value;
-      if(email){
-        window.location.href = "membership.html"; 
-      } else {
-        alert("Please enter your email first!");
-      }
-    }
+    // Typeform Popup Integration
+    const formId = "01K3EPYXJTRREC525RBP8AV908"; 
+
+    document.getElementById("digitalBtn").addEventListener("click", function() {
+      window.tf.createPopup(formId, {
+        mode: "popup",
+        autoClose: 3,
+        hideScrollbars: true,
+        size: 60, // popup size small
+        onSubmit: function() {
+          window.location.href = "membership.html";
+        }
+      }).open();
+    });
+
+    document.getElementById("dropshippingBtn").addEventListener("click", function() {
+      window.tf.createPopup(formId, {
+        mode: "popup",
+        autoClose: 3,
+        hideScrollbars: true,
+        size: 60, // popup size small
+        onSubmit: function() {
+          window.location.href = "dropshipping.html";
+        }
+      }).open();
+    });
   </script>
 
 </body>
-</html>
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeJQC-G17byPAvMCt2ptQfoCSLkpQWXLWRmqRYoIbKCUbC5oQ/viewform?embedded=true" width="640" height="314" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </html>
