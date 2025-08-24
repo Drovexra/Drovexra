@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drovexra Dropshipping Plans</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #3F9BDF, #FFFFFF);
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      color: #0d47a1;
+    }
+    header p {
+      font-size: 1.2rem;
+      color: #333;
+    }
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      padding: 40px;
+    }
+    .card {
+      background: rgba(255,255,255,0.9);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+    }
+    .card h2 {
+      margin: 0 0 10px;
+    }
+    .price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #0d47a1;
+    }
+    ul {
+      text-align: left;
+      padding-left: 20px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 25px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background: linear-gradient(90deg, #3F9BDF, #0d47a1);
+      color: white;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 300px;
+    }
+    .modal-content h3 {
+      margin-bottom: 20px;
+    }
+    .currency-btn {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      font-size: 1rem;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .inr { background: #ff6600; color: white; }
+    .usd { background: #00cc66; color: white; }
+    .currency-btn:hover { opacity: 0.85; }
+
+    /* Telegram Button */
+    #telegramBtn {
+      display: none;
+      margin-top: 15px;
+      padding: 12px 25px;
+      background: #0088cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    #telegramBtn:hover {
+      transform: scale(1.05);
+      background: #0077b6;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🚀 Drovexra Dropshipping Plans</h1>
+    <p>Build, Scale & Dominate Your Dropshipping Journey</p>
+  </header>
+
+  <section class="plans">
+    <!-- Basic -->
+    <div class="card">
+      <h2>🟢 Basic</h2>
+      <div class="price">$19</div>
+      <ul>
+        <li>✔ 5 Product Testing</li>
+        <li>✔ AliExpress + India sourcing</li>
+        <li>✔ Shopify Store Setup</li>
+        <li>✔ Lower RTO & COD management</li>
+        <li>✔ Ads Run (Additional Fees)</li>
+        <li>✔ 2-Week Store Update</li>
+        <li>✔ Inventory Setup</li>
+        <li>✔ 1 Social Media Account</li>
+      </ul>
+      <button class="btn" onclick="openModal('Basic Plan')">Buy Now</button>
+    </div>
+    <!-- Pro -->
+    <div class="card">
+      <h2>🔵 Pro</h2>
+      <div class="price">$39</div>
+      <ul>
+        <li>✅ Everything in Basic</li>
+        <li>✅ 10 Product Testing</li>
+        <li>✅ Personal Store (with Domain Fee)</li>
+        <li>✅ Ads Run (Additional Fees)</li>
+        <li>✅ 2 Social Media Accounts</li>
+        <li>✅ More Professional Setup</li>
+        <li>✅ 1 Week Product Update</li>
+      </ul>
+      <button class="btn" onclick="openModal('Pro Plan')">Buy Now</button>
+    </div>
+    <!-- Advanced -->
+    <div class="card">
+      <h2>🔴 Advanced</h2>
+      <div class="price">$59</div>
+      <ul>
+        <li>🔥 Everything in Basic & Pro</li>
+        <li>🔥 25 Product Testing</li>
+        <li>🔥 Personal Website Setup</li>
+        <li>🔥 Ads Run (Additional Fees)</li>
+        <li>🔥 4 Social Media Accounts</li>
+        <li>🔥 Free Domain</li>
+        <li>🔥 24/7 Support</li>
+        <li>🔥 Content Creation</li>
+        <li>🔥 Ads Making</li>
+      </ul>
+      <button class="btn" onclick="openModal('Advanced Plan')">Buy Now</button>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div id="paymentModal" class="modal">
+    <div class="modal-content">
+      <h3 id="planName">Select Currency</h3>
+      <button class="currency-btn inr" onclick="payINR()">Pay in INR</button>
+      <button class="currency-btn usd" onclick="payUSD()">Pay in USD</button>
+      <button class="currency-btn" style="background:#ccc;color:#000;" onclick="closeModal()">Cancel</button>
+      <!-- Telegram Button -->
+      <button id="telegramBtn" onclick="window.location.href='https://t.me/drovexa'">Talk to Drovexra</button>
+    </div>
+  </div>
+
+  <script>
+    let selectedPlan = "";
+
+    function openModal(plan) {
+      selectedPlan = plan;
+      document.getElementById("planName").innerText = plan + " - Choose Currency";
+      document.getElementById("paymentModal").style.display = "flex";
+    }
+
+    function closeModal() {
+      document.getElementById("paymentModal").style.display = "none";
+      document.getElementById("telegramBtn").style.display = "none";
+    }
+
+    function payINR() {
+      window.location.href = "upi://pay?pa=7905315338@fam&pn=Drovexra&am=0&cu=INR";
+      setTimeout(function() {
+        document.getElementById("telegramBtn").style.display = "block";
+      }, 8000);
+    }
+
+    function payUSD() {
+      let subject = encodeURIComponent("Purchase Request: " + selectedPlan);
+      let body = encodeURIComponent("Hello Drovexra Team,\n\nI want to purchase the " + selectedPlan + ".\nPlease guide me with the next steps.\n\nThank you!");
+      window.location.href = "mailto:drovexra@gmail.com?subject=" + subject + "&body=" + body;
+    }
+  </script>
+</body>
+  </html>
