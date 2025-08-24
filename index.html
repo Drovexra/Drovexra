@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drovexra - Landing Page</title>
-  <script src="https://embed.typeform.com/next/embed.js"></script>
+  <script src="//embed.typeform.com/next/embed.js"></script>
   <style>
     body {
       margin: 0;
@@ -86,6 +86,14 @@
       100% { opacity: 0; transform: translateY(-20px);}
     }
 
+    .hero-img {
+      display: block;
+      margin: 40px auto;
+      max-width: 90%;
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+    }
+
     footer {
       text-align: center;
       padding: 20px;
@@ -102,6 +110,8 @@
     <p>The Future of Digital Growth & E-commerce Starts Here</p>
   </header>
 
+  <img src="your-image.jpg" alt="Drovexra Means Business" class="hero-img">
+
   <p class="highlight">
     This is the plan for people, who want to start their growing and serious e-commerce business.<br><br>
     💰 E-commerce market size in 2024: <b>$15 Billion</b><br>
@@ -113,6 +123,7 @@
   <div class="btn-container">
     <button class="btn" id="dropshippingBtn">Dropshipping</button>
     <button class="btn" id="digitalBtn">Digital Product</button>
+    <button class="btn" id="investingBtn">Investing</button>
   </div>
 
   <footer>
@@ -137,32 +148,30 @@
     setInterval(showNotification, 7000);
 
     // Typeform Popup Integration
-    const formId = "01K3EPYXJTRREC525RBP8AV908"; 
+    const formId = "01K3EPYXJTRREC525RBP8AV908";
 
-    document.getElementById("digitalBtn").addEventListener("click", function() {
-      window.tf.createPopup(formId, {
+    function openForm(redirectUrl) {
+      window.typeformEmbed.makePopup(`https://form.typeform.com/to/${formId}`, {
         mode: "popup",
-        autoClose: 3,
         hideScrollbars: true,
-        size: 60, // popup size small
         onSubmit: function() {
-          window.location.href = "membership.html";
+          window.location.href = redirectUrl;
         }
       }).open();
+    }
+
+    document.getElementById("digitalBtn").addEventListener("click", function() {
+      openForm("membership.html");
     });
 
     document.getElementById("dropshippingBtn").addEventListener("click", function() {
-      window.tf.createPopup(formId, {
-        mode: "popup",
-        autoClose: 3,
-        hideScrollbars: true,
-        size: 60, // popup size small
-        onSubmit: function() {
-          window.location.href = "dropshipping.html";
-        }
-      }).open();
+      openForm("dropshipping.html");
+    });
+
+    document.getElementById("investingBtn").addEventListener("click", function() {
+      openForm("investing.html");
     });
   </script>
 
 </body>
-      </html>
+</html>
