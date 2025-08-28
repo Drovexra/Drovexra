@@ -13,7 +13,7 @@
       line-height: 1.6;
     }
 
-    /* Gradient text */
+    /* Gradient text (default for all) */
     h1, h2, p, .price, .reviews h2, .review {
       background: linear-gradient(120deg, #000000, #FFFFFF);
       -webkit-background-clip: text;
@@ -24,6 +24,16 @@
       text-align: center;
       padding: 40px 20px;
     }
+
+    /* 👇 Sirf header ke h1 aur p ko white kar diya */
+    header h1,
+    header p {
+      background: none;
+      color: #FFFFFF;
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+    }
+
     header h1 {
       font-size: 2.5rem;
     }
