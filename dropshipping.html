@@ -8,21 +8,20 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(135deg, #3F9BDF, #FFFFFF);
+      background: linear-gradient(140deg, #000000, #FFFFFF);
       color: #222;
       line-height: 1.6;
     }
     header {
       text-align: center;
       padding: 40px 20px;
+      color: white;
     }
     header h1 {
       font-size: 2.5rem;
-      color: #0d47a1;
     }
     header p {
       font-size: 1.2rem;
-      color: #333;
     }
     .plans {
       display: grid;
@@ -31,11 +30,12 @@
       padding: 40px;
     }
     .card {
-      background: rgba(255,255,255,0.9);
+      background: #fff;
       border-radius: 15px;
       padding: 25px;
       box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
+      color: black;
     }
     .card:hover {
       transform: translateY(-10px);
@@ -47,7 +47,7 @@
       font-size: 1.4rem;
       font-weight: bold;
       margin-bottom: 15px;
-      color: #0d47a1;
+      color: #000;
     }
     ul {
       text-align: left;
@@ -62,13 +62,14 @@
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      background: linear-gradient(90deg, #3F9BDF, #0d47a1);
+      background: linear-gradient(140deg, #000000, #FFFFFF);
       color: white;
       transition: 0.3s;
     }
     .btn:hover {
       transform: scale(1.05);
     }
+
     /* Modal */
     .modal {
       display: none;
@@ -87,9 +88,6 @@
       text-align: center;
       width: 300px;
     }
-    .modal-content h3 {
-      margin-bottom: 20px;
-    }
     .currency-btn {
       display: block;
       width: 100%;
@@ -102,8 +100,9 @@
       cursor: pointer;
       transition: 0.3s;
     }
-    .inr { background: #ff6600; color: white; }
-    .usd { background: #00cc66; color: white; }
+    .inr { background: #000; color: white; }
+    .usd { background: grey; color: white; }
+    .cancel { background: red; color: white; }
     .currency-btn:hover { opacity: 0.85; }
 
     /* Telegram Button */
@@ -111,7 +110,7 @@
       display: none;
       margin-top: 15px;
       padding: 12px 25px;
-      background: #0088cc;
+      background: #000;
       color: white;
       border: none;
       border-radius: 8px;
@@ -122,7 +121,50 @@
     }
     #telegramBtn:hover {
       transform: scale(1.05);
-      background: #0077b6;
+      background: #333;
+    }
+
+    /* Notification Popup */
+    #notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      font-size: 1rem;
+      display: none;
+      z-index: 2000;
+      animation: fadeInOut 6s ease-in-out forwards;
+    }
+    @keyframes fadeInOut {
+      0% {opacity:0; transform:translateY(-20px);}
+      10%,90% {opacity:1; transform:translateY(0);}
+      100% {opacity:0; transform:translateY(-20px);}
+    }
+
+    /* Reviews */
+    .reviews {
+      background: rgba(255,255,255,0.9);
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 900px;
+      border-radius: 15px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      color: black;
+    }
+    .reviews h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #000;
+    }
+    .review {
+      margin-bottom: 15px;
+      padding: 15px;
+      border-left: 5px solid #000;
+      background: #f9f9f9;
     }
   </style>
 </head>
@@ -183,20 +225,35 @@
     </div>
   </section>
 
+  <!-- Reviews -->
+  <section class="reviews">
+    <h2>🌟 What People Say About Drovexra</h2>
+    <div class="review">"Drovexra helped me launch my first dropshipping store in just 7 days! Highly recommended." – Rajesh, India</div>
+    <div class="review">"I scaled my business to $5k/month using Drovexra’s Pro Plan. Superb support!" – Emily, USA</div>
+    <div class="review">"The team gave me the confidence and tools to dominate in my niche." – Arjun, India</div>
+    <div class="review">"Advanced Plan is a complete package – domain, ads, content all covered." – Michael, USA</div>
+    <div class="review">"Best decision I ever made for my e-commerce journey!" – Priya, India</div>
+  </section>
+
   <!-- Modal -->
   <div id="paymentModal" class="modal">
     <div class="modal-content">
       <h3 id="planName">Select Currency</h3>
       <button class="currency-btn inr" onclick="payINR()">Pay in INR</button>
       <button class="currency-btn usd" onclick="payUSD()">Pay in USD</button>
-      <button class="currency-btn" style="background:#ccc;color:#000;" onclick="closeModal()">Cancel</button>
+      <button class="currency-btn cancel" onclick="closeModal()">Cancel</button>
       <!-- Telegram Button -->
       <button id="telegramBtn" onclick="window.location.href='https://t.me/drovexa'">Talk to Drovexra</button>
     </div>
   </div>
 
+  <!-- Notification -->
+  <div id="notification"></div>
+
   <script>
     let selectedPlan = "";
+    const notifBox = document.getElementById("notification");
+    const names = ["Rajesh (India)", "Priya (India)", "Arjun (India)", "Emily (USA)", "Michael (USA)", "Sophia (USA)", "Aarav (India)", "Olivia (USA)"];
 
     function openModal(plan) {
       selectedPlan = plan;
@@ -221,6 +278,15 @@
       let body = encodeURIComponent("Hello Drovexra Team,\n\nI want to purchase the " + selectedPlan + ".\nPlease guide me with the next steps.\n\nThank you!");
       window.location.href = "mailto:drovexra@gmail.com?subject=" + subject + "&body=" + body;
     }
+
+    // Random Notification Every 25 Seconds
+    function showNotification() {
+      const name = names[Math.floor(Math.random()*names.length)];
+      notifBox.innerText = "🚀 " + name + " just started Dropshipping with Drovexra!";
+      notifBox.style.display = "block";
+      setTimeout(()=>notifBox.style.display="none", 6000);
+    }
+    setInterval(showNotification, 25000);
   </script>
 </body>
-  </html>
+</html>
