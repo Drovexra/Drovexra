@@ -4,8 +4,187 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drovexra - Landing Page</title>
-  <!-- External CSS -->
-  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(90deg, #000000, #B1B1B1);
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: #fff; /* button ke upar wala text pure white */
+    }
+
+    header p {
+      font-size: 1.3rem;
+      color: #fff;
+    }
+
+    /* Gradient text effect */
+    .gradient-text {
+      background: linear-gradient(110deg, #000000, #FFFFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .highlight {
+      font-size: 1.4rem;
+      margin: 30px auto;
+      text-align: center;
+      font-weight: 500;
+      max-width: 900px;
+      background: rgba(255,255,255,0.8);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .highlight span {
+      color: red;
+      font-family: 'Kanit', sans-serif;
+      font-weight: 600;
+    }
+
+    .btn-container {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn {
+      background: #111;
+      color: #fff;
+      padding: 14px 28px;
+      border: none;
+      border-radius: 10px;
+      margin: 10px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn:hover {
+      background: #444;
+      transform: translateY(-2px);
+    }
+
+    .notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #fff;
+      padding: 12px 18px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 0.95rem;
+      display: none;
+      animation: fadeInOut 6s ease-in-out forwards;
+      z-index: 1000;
+    }
+
+    @keyframes fadeInOut {
+      0% { opacity: 0; transform: translateY(-20px);}
+      10%, 90% { opacity: 1; transform: translateY(0);}
+      100% { opacity: 0; transform: translateY(-20px);}
+    }
+
+    .hero-img {
+      display: block;
+      margin: 40px auto;
+      max-width: 90%;
+      border-radius: 14px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      background: rgba(255,255,255,0.7);
+      font-size: 0.95rem;
+    }
+
+    /* Popup styles */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      animation: fadeIn 0.3s;
+      z-index: 2000;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 300px;
+      animation: slideUp 0.4s;
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(50px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+
+    .popup input {
+      width: 90%;
+      padding: 10px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .popup button {
+      padding: 10px 20px;
+      background: #28a745;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .popup button:hover {
+      background: #218838;
+    }
+
+    /* About section */
+    .about {
+      background: linear-gradient(120deg, #FFFFFF, #000000);
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 900px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .about h2, .about p, .about li {
+      background: linear-gradient(120deg, #000000, #FFFFFF);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
 </head>
 <body>
 
@@ -16,12 +195,12 @@
 
   <img src="your-image.jpg" alt="Drovexra Means Business" class="hero-img">
 
-  <p class="highlight">
-    This is the plan for people, who want to start their growing and serious e-commerce business.<br><br>
-    💰 E-commerce market size in 2024: <b>$15 Billion</b><br>
-    📈 Expected size by 2030: <b>$200 Billion+</b><br><br>
-    Join the revolution with <b>Drovexra</b> today!  
-    <br><span style="color:red; font-weight:600;">⚡ Plans valid for 10 days only — after that price increases by 33%!</span>
+  <p class="highlight gradient-text">
+    This is the plan for people, who want to start their growing and serious e-commerce business.<br><br>  
+    💰 E-commerce market size in 2024: <b>$15 Billion</b><br>  
+    📈 Expected size by 2030: <b>$200 Billion+</b><br><br>  
+    Join the revolution with <b>Drovexra</b> today!    
+    <br><span>⚡ Plans valid for 10 days only — after that price increases by 33%!</span>  
   </p>
 
   <div class="btn-container">
@@ -63,7 +242,6 @@
   <div id="notification" class="notification"></div>
 
   <script>
-    // Random Notifications
     const names = ["Aarav","Vihaan","Vivaan","Aditya","Arjun","Sai","Reyansh","Krishna","Ishaan","Shaurya",
                    "Atharv","Rudra","Kabir","Rohan","Aryan","Ananya","Ira","Diya","Myra","Aadhya"];
     const notifBox = document.getElementById("notification");
@@ -76,7 +254,6 @@
     }
     setInterval(showNotification, 7000);
 
-    // Popup Email + Redirect
     let selectedPlan = "";
 
     function openPopup(plan) {
@@ -100,7 +277,6 @@
       }
     }
 
-    // Close popup when clicking outside
     window.onclick = function(e) {
       if (e.target === document.getElementById("popup")) {
         document.getElementById("popup").style.display = "none";
@@ -109,4 +285,4 @@
   </script>
 
 </body>
-  </html>
+</html>
