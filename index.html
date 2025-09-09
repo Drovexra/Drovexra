@@ -1,289 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra - Landing Page</title>
-  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Drovexra — Where Business Execute</title>
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, sans-serif;
-      background: linear-gradient(90deg, #000000, #B1B1B1);
+    :root{
+      --bg-start: #000000;
+      --bg-end: #B1B1B1;
+      --accent: #000000;
+      --white: #ffffff;
+      --card-bg: rgba(255,255,255,0.95);
+      --muted: rgba(255,255,255,0.85);
+      --btn-bg: #000000;
+      --btn-hover: #222222;
+      --radius: 14px;
+      --max-width: 1100px;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px;
+    html,body{height:100%;margin:0;font-family: "Segoe UI", Tahoma, sans-serif; -webkit-font-smoothing:antialiased;}
+    body{
+      background: linear-gradient(90deg, var(--bg-start) 0%, var(--bg-end) 100%);
+      color: #111;
+      display:flex;
+      justify-content:center;
+      padding:40px 20px;
     }
 
-    header h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
-      font-weight: 700;
-      color: #fff; /* header text white */
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+      margin:0 auto;
     }
 
-    header p {
-      font-size: 1.3rem;
-      color: #fff;
+    header{
+      text-align:center;
+      margin-bottom:28px;
     }
 
-    /* Gradient text effect */
-    .gradient-text {
-      background: linear-gradient(110deg, #000000, #FFFFFF);
+    .brand {
+      font-size:48px;
+      font-weight:800;
+      letter-spacing:1px;
+      color:var(--white); /* header text white */
+      margin-bottom:6px;
+      text-transform:uppercase;
     }
 
-    .highlight {
-      font-size: 1.4rem;
-      margin: 30px auto;
-      text-align: center;
-      font-weight: 500;
-      max-width: 900px;
-      background: rgba(255,255,255,0.8);
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    .tagline {
+      font-size:18px;
+      color: rgba(255,255,255,0.85);
+      margin-bottom:18px;
     }
 
-    .highlight span {
-      color: red;
-      font-family: 'Kanit', sans-serif;
-      font-weight: 600;
+    /* options */
+    .options {
+      display:flex;
+      gap:16px;
+      justify-content:center;
+      flex-wrap:wrap;
+      margin-bottom:22px;
     }
 
-    .btn-container {
-      text-align: center;
-      margin: 30px 0;
+    .option-btn{
+      background:var(--btn-bg);
+      color:var(--white);
+      border:none;
+      padding:14px 22px;
+      border-radius:12px;
+      font-weight:700;
+      cursor:pointer;
+      min-width:170px;
+      text-align:center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+      transition: transform .18s ease, background .18s ease;
+      font-size:16px;
     }
 
-    .btn {
-      background: #111;
-      color: #fff;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 10px;
-      margin: 10px;
-      cursor: pointer;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: all 0.3s;
+    .option-btn:hover{ transform: translateY(-4px); background: var(--btn-hover); }
+
+    /* card for paragraph */
+    .lead-card{
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding:24px;
+      max-width:980px;
+      margin: 0 auto 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+      color:#111;
+      line-height:1.6;
+      font-size:16px;
     }
 
-    .btn:hover {
-      background: #444;
-      transform: translateY(-2px);
+    .lead-card b{font-weight:700;}
+
+    .warning {
+      color: #c62828; /* red */
+      font-weight:700;
     }
 
-    .notification {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      background: #fff;
-      padding: 12px 18px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      font-size: 0.95rem;
-      display: none;
-      animation: fadeInOut 6s ease-in-out forwards;
-      z-index: 1000;
+    /* hidden steps section */
+    .steps {
+      display:none;
+      max-width:980px;
+      margin:18px auto 28px;
+      background: linear-gradient(120deg, rgba(255,255,255,0.98), rgba(240,240,240,0.96));
+      border-radius:12px;
+      padding:20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
-    @keyframes fadeInOut {
-      0% { opacity: 0; transform: translateY(-20px);}
-      10%, 90% { opacity: 1; transform: translateY(0);}
-      100% { opacity: 0; transform: translateY(-20px);}
+    .steps h3{
+      margin:0 0 12px 0;color:#000;font-size:20px;
     }
 
-    .hero-img {
-      display: block;
-      margin: 40px auto;
-      max-width: 90%;
-      border-radius: 14px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+    .step-list { list-style: none; padding-left:0; margin:0; }
+    .step-list li{
+      background:#fff;
+      border-radius:10px;
+      padding:12px 14px;
+      margin-bottom:10px;
+      border-left:4px solid #000;
+      color:#000;
+      font-weight:600;
     }
+    .step-note { font-weight:400; font-size:14px; color:#333; margin-top:6px; }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-      background: rgba(255,255,255,0.7);
-      font-size: 0.95rem;
+    .proceed-area { text-align:center; margin-top:12px; }
+    .proceed-btn {
+      background: linear-gradient(90deg,#000000,#444444);
+      color:#fff;
+      padding:12px 22px;
+      border-radius:12px;
+      border:none;
+      font-weight:700;
+      cursor:pointer;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
     }
+    .proceed-btn:disabled{opacity:0.6;cursor:not-allowed;}
 
-    /* Popup styles */
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    /* terms modal */
+    .modal {
+      position:fixed;
+      inset:0;
+      display:none;
+      justify-content:center;
+      align-items:center;
+      z-index:9999;
       background: rgba(0,0,0,0.6);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      animation: fadeIn 0.3s;
-      z-index: 2000;
+      padding:20px;
+    }
+    .modal .box{
+      width:100%;
+      max-width:720px;
+      background:#fff;
+      border-radius:12px;
+      padding:20px;
+      max-height:80vh;
+      overflow:auto;
+    }
+    .modal h2{margin-top:0;}
+    .terms-content{
+      background:#fafafa;
+      padding:12px;
+      border-radius:8px;
+      border:1px solid #eee;
+      margin-bottom:12px;
+      color:#222; line-height:1.5;
     }
 
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
+    .agree-row{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      margin-bottom:10px;
     }
 
-    .popup-content {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      text-align: center;
-      width: 300px;
-      animation: slideUp 0.4s;
+    .modal .actions{ display:flex; gap:10px; justify-content:flex-end; margin-top:8px; }
+    .btn-ghost{
+      background:transparent; border:1px solid #ccc; padding:8px 12px; border-radius:8px; cursor:pointer;
+    }
+    .btn-primary{
+      background:#000; color:#fff; padding:8px 14px; border-radius:8px; border:none; font-weight:700; cursor:pointer;
     }
 
-    @keyframes slideUp {
-      from {transform: translateY(50px); opacity: 0;}
-      to {transform: translateY(0); opacity: 1;}
-    }
+    /* small footer */
+    footer{ text-align:center; color: rgba(255,255,255,0.8); margin-top:24px; font-size:14px; }
 
-    .popup input {
-      width: 90%;
-      padding: 10px;
-      margin: 15px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    .popup button {
-      padding: 10px 20px;
-      background: #28a745;
-      border: none;
-      color: white;
-      font-size: 16px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
-    .popup button:hover {
-      background: #218838;
-    }
-
-    /* About section */
-    .about {
-      background: #000; /* pure black */
-      padding: 40px;
-      margin: 40px auto;
-      max-width: 900px;
-      border-radius: 16px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-      color: #fff; /* text pure white */
-    }
-
-    .about h2 {
-      color: #fff;
-    }
-
-    .about p, .about li {
-      color: #fff;
+    /* responsive */
+    @media (max-width:640px){
+      .brand { font-size:34px; }
+      .option-btn{ min-width:140px; padding:12px 16px; font-size:15px; }
+      .lead-card { padding:18px; }
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="brand">Drovexra</div>
+      <div class="tagline">where business execute</div>
+    </header>
 
-  <header>
-    <h1>Welcome to Drovexra 🚀</h1>
-    <p>The Future of Digital Growth & E-commerce Starts Here</p>
-  </header>
+    <div class="options" role="list" aria-label="Services">
+      <button class="option-btn" data-service="learn">Learn Skill</button>
+      <button class="option-btn" data-service="custom">Custom Idea</button>
+      <button class="option-btn" data-service="digital">Digital Product</button>
+      <button class="option-btn" data-service="dropshipping">Dropshipping</button>
+    </div>
 
-  <img src="your-image.jpg" alt="Drovexra Means Business" class="hero-img">
+    <div class="lead-card" id="leadCard" aria-live="polite">
+      <p>
+        This is the plan for people, who want to start their growing and serious e-commerce business.
+      </p>
+      <p>
+        💰 E-commerce market size in 2024: <b>$15 Billion</b><br/>
+        📈 Expected size by 2030: <b>$200 Billion+</b>
+      </p>
+      <p>
+        Join the revolution with <b>Drovexra</b> today!
+        <br/><span class="warning">⚡ Plans valid for 10 days only — after that price increases by 33%!</span>
+      </p>
+    </div>
 
-  <p class="highlight gradient-text">
-    This is the plan for people, who want to start their growing and serious e-commerce business.<br><br>  
-    💰 E-commerce market size in 2024: <b>$15 Billion</b><br>  
-    📈 Expected size by 2030: <b>$200 Billion+</b><br><br>  
-    Join the revolution with <b>Drovexra</b> today!    
-    <br><span>⚡ Plans valid for 10 days only — after that price increases by 33%!</span>  
-  </p>
+    <!-- steps appear here after accepting T&C -->
+    <div class="steps" id="stepsSection" aria-hidden="true">
+      <h3 id="chosenTitle">How to use Drovexra</h3>
 
-  <div class="btn-container">
-    <button class="btn" onclick="openPopup('dropshipping')">Dropshipping</button>
-    <button class="btn" onclick="openPopup('digital')">Digital Product</button>
-    <button class="btn" onclick="openPopup('investing')">Investing</button>
+      <ul class="step-list">
+        <li>
+          1) Accept Terms & Verify — Agree our terms and confirm you’re ready to proceed.
+          <div class="step-note">(Required once per session for the chosen service.)</div>
+        </li>
+
+        <li>
+          2) Quick Intake Form — Fill a short form with your name, email, goal & budget.
+          <div class="step-note">This helps us tailor the onboarding and match the right resources.</div>
+        </li>
+
+        <li>
+          3) Choose Plan / Payment — Select the membership or service plan and pay securely.
+          <div class="step-note">We support direct UPI / email-invoice flows for now.</div>
+        </li>
+
+        <li>
+          4) Onboarding & Access — After payment, get your dashboard, training, or store setup.
+          <div class="step-note">You’ll receive step-by-step tasks and a dedicated guide for the chosen service.</div>
+        </li>
+
+        <li>
+          5) Growth & Support — Regular updates, personal help, and growth experiments to scale.
+          <div class="step-note">We help with ads, funnels, and optimization until you hit the target.</div>
+        </li>
+      </ul>
+
+      <div class="proceed-area">
+        <button class="proceed-btn" id="proceedBtn">Proceed to selected service</button>
+      </div>
+    </div>
+
+    <footer>
+      © Drovexra — Built for builders & hustlers
+    </footer>
   </div>
 
-  <!-- Popup Email Box -->
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <h3>Enter your Email</h3>
-      <input type="email" id="userEmail" placeholder="Your Email">
-      <button onclick="redirect()">Continue</button>
+  <!-- Terms modal -->
+  <div class="modal" id="termsModal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="box" role="document">
+      <h2>Terms &amp; Conditions — Quick Agreement</h2>
+      <div class="terms-content" id="termsContent" tabindex="0">
+        <p><strong>Before you proceed:</strong></p>
+        <ol>
+          <li>Drovexra provides guidance, platform access, and services to help you build. We are not responsible for external platform decisions, ad spend outcomes or third-party delays.</li>
+          <li>You agree to provide accurate contact info and follow instructions. Misuse or fraud will result in immediate suspension.</li>
+          <li>Payments are final for service activations; refunds follow our refund policy provided at checkout.</li>
+          <li>We may contact you for onboarding and updates. You can opt out of marketing messages anytime.</li>
+        </ol>
+        <p style="font-size:13px;color:#444;margin-top:10px;">(This is a condensed agreement for the demo landing page — full terms are available after signup.)</p>
+      </div>
+
+      <div class="agree-row">
+        <input type="checkbox" id="agreeChk" />
+        <label for="agreeChk">I have read and accept the terms &amp; conditions</label>
+      </div>
+
+      <div class="modal-actions" style="display:flex;justify-content:space-between;align-items:center;">
+        <button class="btn-ghost" id="closeTerms">Cancel</button>
+        <div class="modal-actions-right">
+          <button class="btn-primary" id="acceptTerms" disabled>Accept & Continue</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- About Section -->
-  <section class="about">
-    <h2>About Drovexra</h2>
-    <p>Drovexra is not just a company, it’s a movement. In the fast-changing digital world, where ideas often die before they rise, Drovexra stands as the bridge between dreams and execution.</p>
-    <p>We empower creators, entrepreneurs, and visionaries to start from nothing and build everything — using the power of digital products, branding, and smart marketing.</p>
-
-    <ul>
-      <li>🚀 Digital Product Creation</li>
-      <li>💡 Brand Positioning & Strategy</li>
-      <li>📈 Growth Marketing & Automation</li>
-      <li>🌐 Global Digital Distribution</li>
-    </ul>
-
-    <p><b>That’s the Drovexra vision: taking you from Nothing to Everything</b></p>
-  </section>
-
-  <footer>
-    © by Drovexra | Owner: Shiva Vyas
-  </footer>
-
-  <!-- Notifications -->
-  <div id="notification" class="notification"></div>
-
   <script>
-    const names = ["Aarav","Vihaan","Vivaan","Aditya","Arjun","Sai","Reyansh","Krishna","Ishaan","Shaurya",
-                   "Atharv","Rudra","Kabir","Rohan","Aryan","Ananya","Ira","Diya","Myra","Aadhya"];
-    const notifBox = document.getElementById("notification");
+    // JS: handle click flow
+    (function(){
+      const optionBtns = document.querySelectorAll('.option-btn');
+      const modal = document.getElementById('termsModal');
+      const agreeChk = document.getElementById('agreeChk');
+      const acceptBtn = document.getElementById('acceptTerms');
+      const closeBtn = document.getElementById('closeTerms');
+      const steps = document.getElementById('stepsSection');
+      const chosenTitle = document.getElementById('chosenTitle');
+      const proceedBtn = document.getElementById('proceedBtn');
 
-    function showNotification() {
-      const name = names[Math.floor(Math.random()*names.length)];
-      notifBox.innerText = name + " just purchased a Drovexra plan!";
-      notifBox.style.display = "block";
-      setTimeout(()=>notifBox.style.display="none", 6000);
-    }
-    setInterval(showNotification, 7000);
+      let selectedService = null;
 
-    let selectedPlan = "";
+      // map to pages (change filenames if needed)
+      const serviceRedirect = {
+        'dropshipping': 'dropshipping.html',
+        'digital': 'membership.html',
+        'learn': 'learn.html',
+        'custom': 'custom.html'
+      };
 
-    function openPopup(plan) {
-      selectedPlan = plan;
-      document.getElementById("popup").style.display = "flex";
-    }
+      optionBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          selectedService = btn.getAttribute('data-service') || 'digital';
+          openTermsModal();
+        });
+      });
 
-    function redirect() {
-      let email = document.getElementById("userEmail").value;
-      if (email === "") {
-        alert("Please enter your email");
-        return;
+      function openTermsModal(){
+        agreeChk.checked = false;
+        acceptBtn.disabled = true;
+        modal.style.display = 'flex';
+        modal.setAttribute('aria-hidden','false');
+        // focus for a11y
+        setTimeout(()=> document.getElementById('termsContent').focus(), 50);
       }
 
-      if (selectedPlan === "dropshipping") {
-        window.location.href = "dropshipping.html";
-      } else if (selectedPlan === "digital") {
-        window.location.href = "membership.html";
-      } else if (selectedPlan === "investing") {
-        window.location.href = "investing.html";
+      function closeModal(){
+        modal.style.display = 'none';
+        modal.setAttribute('aria-hidden','true');
       }
-    }
 
-    window.onclick = function(e) {
-      if (e.target === document.getElementById("popup")) {
-        document.getElementById("popup").style.display = "none";
+      closeBtn.addEventListener('click', closeModal);
+
+      agreeChk.addEventListener('change', (e) => {
+        acceptBtn.disabled = !e.target.checked;
+      });
+
+      acceptBtn.addEventListener('click', () => {
+        // Accept => reveal steps and set chosen title, close modal
+        closeModal();
+        showStepsFor(selectedService);
+      });
+
+      // if user clicks outside modal box close (optional)
+      modal.addEventListener('click', (ev) => {
+        if(ev.target === modal) {
+          closeModal();
+        }
+      });
+
+      function showStepsFor(service){
+        const pretty = {
+          'learn': 'Learn Skill',
+          'custom': 'Custom Idea',
+          'digital': 'Digital Product',
+          'dropshipping': 'Dropshipping'
+        };
+        chosenTitle.textContent = `How to use Drovexra — You chose: ${pretty[service] || pretty['digital']}`;
+        steps.style.display = 'block';
+        steps.setAttribute('aria-hidden','false');
+        // scroll into view
+        steps.scrollIntoView({behavior:'smooth'});
+        // enable proceed button and set redirect action
+        proceedBtn.disabled = false;
+        proceedBtn.onclick = () => {
+          // redirect to service page (change names if your pages differ)
+          const url = serviceRedirect[service] || serviceRedirect['digital'];
+          window.location.href = url;
+        };
       }
-    }
+
+      // make Accept button keyboard accessible on Enter
+      acceptBtn.addEventListener('keydown', (e)=>{
+        if(e.key === 'Enter' && !acceptBtn.disabled) acceptBtn.click();
+      });
+
+      // close with Escape
+      window.addEventListener('keydown', (e)=>{
+        if(e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+      });
+    })();
   </script>
-
 </body>
-                                                          </html>
+        </html>
