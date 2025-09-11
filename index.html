@@ -4,148 +4,184 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Drovexra - Where Business Execute</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+  <script type="module">
+    // ---------------- Firebase Setup ----------------
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+    import { getDatabase, ref, push } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
+    // 🔑 Your Firebase Config (from you)
+    const firebaseConfig = {
+      apiKey: "AIzaSyD7ch3RqvHQqtx7qtCt7my2sI5nVi-VXkk",
+      authDomain: "drovexra-d04d2.firebaseapp.com",
+      projectId: "drovexra-d04d2",
+      storageBucket: "drovexra-d04d2.firebasestorage.app",
+      messagingSenderId: "151024493370",
+      appId: "1:151024493370:web:6e26e29ad7a4775bc42603",
+      measurementId: "G-G500V1R7KS"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    // Email save karne ka function
+    window.saveEmail = function() {
+      const emailInput = document.getElementById("emailInput");
+      const email = emailInput.value;
+
+      if (email) {
+        push(ref(database, "emails"), { email });
+        alert("🎉 Email saved successfully!");
+        emailInput.value = "";
+        document.getElementById("popup").style.display = "none";
+      } else {
+        alert("⚠️ Please enter a valid email!");
+      }
+    }
+  </script>
+
+  <style>
     body {
-      background: linear-gradient(140deg, #000000, #0a0f1f);
-      color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white;
+      text-align: center;
     }
 
     header {
-      text-align: center;
-      padding: 50px 20px 30px;
+      padding: 40px 20px;
     }
 
     header h1 {
       font-size: 3rem;
-      font-weight: 700;
+      margin: 0;
+      color: #00ffcc;
     }
 
     header p {
       font-size: 1.2rem;
       margin-top: 10px;
-      color: #b0b0b0;
-    }
-
-    /* Options Section */
-    .options {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      width: 90%;
-      max-width: 1100px;
-      margin: 40px auto;
-    }
-
-    .card {
-      background: #111827;
-      border-radius: 15px;
-      padding: 30px;
-      text-align: center;
-      transition: all 0.3s ease;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      background: linear-gradient(160deg, #1f2937, #111827);
-    }
-
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
-      color: #00d4ff;
-    }
-
-    .card p {
-      font-size: 1rem;
       color: #ccc;
     }
 
-    /* Info Block */
-    .info {
-      background: #1f2937;
-      padding: 40px 20px;
-      border-radius: 20px;
-      width: 90%;
-      max-width: 1000px;
-      text-align: center;
-      margin: 20px auto 40px;
+    .options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin: 40px;
     }
 
-    .info p {
+    .option-box {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 40px 20px;
       font-size: 1.2rem;
-      line-height: 1.8;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s, background 0.3s;
+    }
+
+    .option-box:hover {
+      transform: scale(1.05);
+      background: rgba(0, 255, 204, 0.2);
+    }
+
+    .paragraph {
+      max-width: 800px;
+      margin: 40px auto;
+      font-size: 1rem;
+      line-height: 1.6;
       color: #ddd;
     }
 
-    /* Start Button */
-    .start-btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      font-weight: bold;
-      border-radius: 12px;
-      border: none;
-      cursor: pointer;
-      background: linear-gradient(135deg, #00d4ff, #00ff85);
-      color: #000;
-      transition: 0.3s;
-      text-decoration: none;
+    .cta {
+      margin: 30px;
     }
 
-    .start-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 255, 150, 0.3);
+    .cta button {
+      background: #00ffcc;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .cta button:hover {
+      background: #00bfa5;
+    }
+
+    /* Popup */
+    #popup {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-content {
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .popup-content input {
+      padding: 10px;
+      width: 80%;
+      margin-bottom: 15px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    .popup-content button {
+      background: #00ffcc;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>DROVEXRA</h1>
-    <p>"Where Business Execute"</p>
+    <h1>Drovexra</h1>
+    <p>Where Business Execute</p>
   </header>
 
-  <!-- Options -->
-  <section class="options">
-    <div class="card">
-      <h2>📘 Learn Skill</h2>
-      <p>Build powerful skills to grow and scale your business faster.</p>
-    </div>
-    <div class="card">
-      <h2>💡 Custom Idea</h2>
-      <p>Get tailored strategies and unique ideas to execute effectively.</p>
-    </div>
-    <div class="card">
-      <h2>💻 Digital Products</h2>
-      <p>Explore high-demand products designed for creators & businesses.</p>
-    </div>
-    <div class="card">
-      <h2>📦 Dropshipping</h2>
-      <p>Launch your own online store with global reach and automation.</p>
-    </div>
-  </section>
+  <div class="options">
+    <div class="option-box" onclick="document.getElementById('popup').style.display='flex'">Learn Skill</div>
+    <div class="option-box" onclick="document.getElementById('popup').style.display='flex'">Custom Idea</div>
+    <div class="option-box" onclick="document.getElementById('popup').style.display='flex'">Digital Product</div>
+    <div class="option-box" onclick="document.getElementById('popup').style.display='flex'">Dropshipping</div>
+  </div>
 
-  <!-- Info Block -->
-  <section class="info">
-    <p>
-      Drovexra is a futuristic platform built to empower creators, entrepreneurs, and dreamers to achieve limitless growth. We believe that innovation and execution should go hand in hand, and that’s why Drovexra brings together tools, resources, and opportunities under one ecosystem. Whether it’s building skills, scaling a business, or exploring new ventures, Drovexra is designed to turn visions into reality. Our mission is simple — to create a space where ideas meet action and growth has no boundaries.
-    </p>
-    <a href="#" class="start-btn">Start Now</a>
-  </section>
+  <div class="paragraph">
+    Drovexra is a futuristic platform built to empower creators, entrepreneurs, and dreamers to achieve limitless growth. We believe that innovation and execution should go hand in hand, and that’s why Drovexra brings together tools, resources, and opportunities under one ecosystem. Whether it’s building skills, scaling a business, or exploring new ventures, Drovexra is designed to turn visions into reality. Our mission is simple — to create a space where ideas meet action and growth has no boundaries.
+  </div>
+
+  <div class="cta">
+    <button onclick="document.getElementById('popup').style.display='flex'">Start Now</button>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup">
+    <div class="popup-content">
+      <h2>Enter Your Email</h2>
+      <input type="email" id="emailInput" placeholder="Enter your email" />
+      <br>
+      <button onclick="saveEmail()">Submit</button>
+      <br><br>
+      <button onclick="document.getElementById('popup').style.display='none'">Close</button>
+    </div>
+  </div>
+
 </body>
 </html>
