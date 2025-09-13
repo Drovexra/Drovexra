@@ -3,87 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra | Where Business Execute</title>
+  <title>Drovexra</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1 class="logo">Drovexra</h1>
-    <p class="tagline">Where Business Execute</p>
-  </header>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <div class="logo">DROVEXRA</div>
+      <a href="start.html" class="btn start-btn">Start Now</a>
+    </header>
 
-  <section class="options">
-    <button onclick="openTerms('start.html')">Start Now</button>
-    <button onclick="openTerms('learning.html')">Learning</button>
-    <button onclick="openTerms('digital.html')">Digital Product</button>
-    <button onclick="openTerms('dropshipping.html')">Dropshipping</button>
-  </section>
+    <!-- Hero Section -->
+    <main>
+      <h1>Where Business <span>Execute</span></h1>
 
-  <section class="about">
-    <p>
-      Drovexra is a futuristic platform built to empower creators, entrepreneurs, and dreamers 
-      to achieve limitless growth. We believe that innovation and execution should go hand in hand, 
-      and that’s why Drovexra brings together tools, resources, and opportunities under one ecosystem. 
-      Whether it’s building skills, scaling a business, or exploring new ventures, Drovexra is designed 
-      to turn visions into reality. Our mission is simple — to create a space where ideas meet action and growth has no boundaries.
-    </p>
-  </section>
-
-  <!-- Terms Modal -->
-  <div id="termsModal" class="modal">
-    <div class="modal-content">
-      <h2>Terms & Conditions</h2>
-      <div class="terms-text">
-        <!-- Scrollable Terms -->
-        <p>
-          1. Platform Role & Disclaimer<br>
-          Drovexra is a technology platform only.<br><br>
-          2. No Warranty & No Guarantee<br>
-          Drovexra does not guarantee sales, profits, or accuracy of any content.<br><br>
-          3. Limitation of Liability<br>
-          Drovexra is not liable for any direct or indirect losses.<br><br>
-          4. User Acknowledgment<br>
-          Users accept all risks involved in online transactions, services, and investments.<br><br>
-          5. Indemnification<br>
-          Users agree to indemnify and hold harmless Drovexra.<br><br>
-          6. Transactions & Commission<br>
-          Drovexra charges 10% commission for safe transactions.<br><br>
-          7. Investments Disclaimer<br>
-          Investments are high-risk activities. No guarantee of profit.<br><br>
-          8. Binding Arbitration & Jurisdiction<br>
-          All disputes resolved through binding arbitration.<br><br>
-          9. Termination of Accounts<br>
-          Drovexra reserves the right to suspend accounts involved in fraud or misuse.
-        </p>
+      <!-- Navigation Buttons -->
+      <div class="nav-buttons">
+        <a href="learning.html" class="btn">Learn Skill</a>
+        <a href="idea.html" class="btn">Custom Idea</a>
+        <a href="product.html" class="btn">Digital Product</a>
+        <a href="dropshipping.html" class="btn">Dropshipping</a>
       </div>
-      <label><input type="checkbox" id="agreeCheck"> I agree to the Terms & Conditions</label>
-      <div class="modal-actions">
-        <button onclick="proceed()">Proceed</button>
-        <button class="cancel" onclick="closeTerms()">Cancel</button>
-      </div>
-    </div>
+
+      <!-- Paragraph -->
+      <p class="description">
+        Drovexra is a futuristic platform built to empower creators, entrepreneurs, 
+        and dreamers to achieve limitless growth. We believe that innovation and 
+        execution should go hand in hand, and that’s why Drovexra brings together 
+        tools, resources, and opportunities under one ecosystem. Whether it’s building 
+        skills, scaling a business, or exploring new ventures, Drovexra is designed 
+        to turn visions into reality. Our mission is simple — to create a space 
+        where ideas meet action and growth has no boundaries.
+      </p>
+    </main>
   </div>
-
-  <script>
-    let nextPage = "";
-
-    function openTerms(page) {
-      nextPage = page;
-      document.getElementById("termsModal").style.display = "flex";
-    }
-
-    function closeTerms() {
-      document.getElementById("termsModal").style.display = "none";
-      document.getElementById("agreeCheck").checked = false;
-    }
-
-    function proceed() {
-      if (document.getElementById("agreeCheck").checked) {
-        window.location.href = nextPage;
-      } else {
-        alert("Please accept the Terms & Conditions to continue.");
-      }
-    }
-  </script>
 </body>
 </html>
