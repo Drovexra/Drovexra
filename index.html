@@ -1,34 +1,122 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Drovexra - Where Business Execute</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Valtrix Studio — Home</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Hero Section -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1 class="title">Drovexra</h1>
-      <p class="tagline">Where Business Execute</p>
-      <div class="buttons">
-        <a href="start.html" class="btn">Start Now</a>
-        <a href="learning.html" class="btn">Learn Skill</a>
-        <a href="custom.html" class="btn">Custom Idea</a>
-        <a href="digital.html" class="btn">Digital Product</a>
-        <a href="dropshipping.html" class="btn">Dropshipping</a>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- Put your exported logo here -->
+        <img src="images/valtrix_logo.png" alt="Valtrix Studio" class="logo">
       </div>
-      <p class="desc">
-        Drovexra is a futuristic platform built to empower creators and entrepreneurs 
-        with tools, strategies, and execution support to take their vision from zero to reality.
-      </p>
+      <nav class="nav">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="showreel.html">Showreel</a>
+        <a class="nav-link cta" href="hireme.html">Hire Me</a>
+        <a class="nav-link" href="https://instagram.com/yourusername" target="_blank">Start Editing</a>
+      </nav>
     </div>
   </header>
 
-  <footer>
-    <p>© 2025 Drovexra. All rights reserved.</p>
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner container">
+        <img src="images/valtrix_logo.png" alt="Valtrix Studio" class="hero-logo">
+        <h1 class="hero-title">Transforming Raw Footage into Cinematic Stories</h1>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="showreel.html">Watch Showreel</a>
+          <a class="btn btn-outline" href="hireme.html">Hire Me</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about container">
+      <div class="about-grid">
+        <div class="about-img">
+          <!-- Replace with your portrait or silhouette -->
+          <img src="images/portrait_placeholder.png" alt="Valtrix" />
+        </div>
+        <div class="about-content">
+          <h2>About Valtrix</h2>
+          <p>
+            I’m a professional video editor and creative technologist specializing in cinematic cuts, high-engagement short-form edits, and commercial-grade post production.
+            I also provide graphic design, digital marketing, and basic website development to help brands look & sound premium.
+          </p>
+          <a class="btn-link" href="showreel.html">View Showreel & Projects →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section services container">
+      <h2>Services</h2>
+      <div class="services-grid">
+        <div class="service">
+          <div class="service-icon">🎬</div>
+          <h3>Video Editing</h3>
+          <p>Smooth pacing, color grade, motion graphics, and final delivery for all platforms.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">🖌️</div>
+          <h3>Graphic Design</h3>
+          <p>Thumbnails, social banners, motion graphics elements, and branding assets.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">📈</div>
+          <h3>Digital Marketing</h3>
+          <p>Short ad edits, creative concepts, and content strategies for engagement & conversions.</p>
+        </div>
+        <div class="service">
+          <div class="service-icon">💻</div>
+          <h3>Basic Website Dev</h3>
+          <p>Landing pages, portfolios, and small business sites — fast & responsive.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO PREVIEW -->
+    <section class="section portfolio container">
+      <h2>Selected Projects</h2>
+      <div class="portfolio-grid">
+        <!-- Replace with your thumbnails and real links -->
+        <a class="port-item" href="https://instagram.com/yourusername" target="_blank">
+          <img src="images/thumb1.png" alt="Project 1">
+          <div class="port-meta"><strong>Fitness Brand Reel</strong><span>• Reels & Ads</span></div>
+        </a>
+        <a class="port-item" href="https://youtube.com" target="_blank">
+          <img src="images/thumb2.png" alt="Project 2">
+          <div class="port-meta"><strong>Music Video Edit</strong><span>• Cinematic</span></div>
+        </a>
+        <a class="port-item" href="https://vimeo.com" target="_blank">
+          <img src="images/thumb3.png" alt="Project 3">
+          <div class="port-meta"><strong>Product Ad</strong><span>• Conversion Oriented</span></div>
+        </a>
+      </div>
+      <div class="center"><a class="btn btn-primary" href="showreel.html">See All Projects & Reels</a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© <span id="year"></span> Valtrix Studio · All rights reserved</div>
+      <div class="socials">
+        <a href="https://instagram.com/yourusername" target="_blank">Instagram</a>
+        <a href="https://wa.me/919999999999" target="_blank">WhatsApp</a>
+        <a href="mailto:you@valtrix.com">Email</a>
+      </div>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
